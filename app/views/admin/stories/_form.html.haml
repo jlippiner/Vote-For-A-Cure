@@ -1,4 +1,4 @@
-- form_for [:admin, @story] do |f|
+- form_for [:admin, @story], :html => { :multipart => true }  do |f|
   = f.error_messages
   %p
     = f.label :name
@@ -7,26 +7,13 @@
   %p
     = f.label :copy
     %br
-    = f.text_field :copy
+    = f.text_area :copy
   %p
-    = f.label :active
-    %br
     = f.check_box :active
+    = f.label :active
   %p
-    = f.label :picture_file_name
+    = f.label "Picture"
     %br
-    = f.text_field :picture_file_name
-  %p
-    = f.label :picture_content_type
-    %br
-    = f.text_field :picture_content_type
-  %p
-    = f.label :picture_file_size
-    %br
-    = f.text_field :picture_file_size
-  %p
-    = f.label :picture_updated_at
-    %br
-    = f.datetime_select :picture_updated_at
+    = f.file_field :picture
   %p
     = f.submit "Submit"

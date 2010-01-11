@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100111192045) do
+ActiveRecord::Schema.define(:version => 20100111212357) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -26,6 +26,21 @@ ActiveRecord::Schema.define(:version => 20100111192045) do
 
   add_index "delayed_jobs", ["locked_by"], :name => "index_delayed_jobs_on_locked_by"
 
+  create_table "direct_messages", :force => true do |t|
+    t.string   "name"
+    t.string   "message"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "followers", :force => true do |t|
+    t.string   "screen_name"
+    t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "statuses", :force => true do |t|
     t.string   "name"
     t.string   "message"
@@ -34,14 +49,27 @@ ActiveRecord::Schema.define(:version => 20100111192045) do
     t.datetime "updated_at"
   end
 
+  create_table "stories", :force => true do |t|
+    t.string   "name"
+    t.string   "copy"
+    t.boolean  "active"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "tweets", :force => true do |t|
     t.integer  "user_id"
-    t.boolean  "send_dm",    :default => true
-    t.boolean  "follow_us",  :default => true
-    t.boolean  "completed",  :default => false
+    t.boolean  "send_dm",           :default => true
+    t.boolean  "follow_us",         :default => true
+    t.boolean  "completed",         :default => false
     t.integer  "status_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "direct_message_id"
   end
 
   create_table "users", :force => true do |t|

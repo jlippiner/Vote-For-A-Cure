@@ -1,0 +1,20 @@
+#direct_message
+  #show
+    - title "Direct Message - #{@direct_message.name}"
+
+    %p
+      %strong Name:
+      =h @direct_message.name
+    %p
+      %strong Message:
+      =h @direct_message.message
+    %p
+      %strong Active:
+      =h @direct_message.active
+
+    %p
+      = link_to "Edit", edit_admin_direct_message_path(@direct_message)
+      |
+      = link_to "Destroy", [:admin, @direct_message], :confirm => 'Are you sure?', :method => :delete
+      |
+      = link_to "View All", admin_direct_messages_path

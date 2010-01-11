@@ -1,0 +1,10 @@
+#direct_message
+  #index
+    - title "Edit Direct Message"
+
+    = render :partial => 'form'
+
+    %p
+      = link_to "Show", admin_direct_message_path(@direct_message)
+      |
+      = link_to "View All", admin_direct_messages_path

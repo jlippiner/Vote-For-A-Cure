@@ -5,7 +5,10 @@
     %b What we doing today?
     
   %ul
+    %li= link_to "View Users", admin_tweets_path
     %li= link_to "Manage Message Statuses", admin_statuses_path
+    %li= link_to "Manage Stories", admin_stories_path
+    %li= link_to "Manage Direct Messages", admin_direct_messages_path
     %li= link_to "Log Out", admin_path(@current_user), :method => :delete 
   
   

@@ -1,0 +1,9 @@
+one:
+  name: MyString
+  message: MyString
+  active: MyString
+
+two:
+  name: MyString
+  message: MyString
+  active: MyString

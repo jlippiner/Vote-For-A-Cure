@@ -1,0 +1,22 @@
+$(function(){
+  $('#direct_message_message').livequery('keyup',function(){
+      limitChars('direct_message_message', 144, 'chars_left');
+  });
+})
+
+function limitChars(textid, limit, infodiv)
+{
+    var text = $('#'+textid).val();    
+    var textlength = text.length;
+    if(textlength > limit)
+    {
+        $('#' + infodiv).html('0!');
+        $('#'+ textid).val(text.substr(0,limit));
+        return false;
+    }
+    else
+    {
+        $('#' + infodiv).html((limit - textlength));
+        return true;
+    }
+}

@@ -1,4 +1,4 @@
-class Admin::StoriesController < ApplicationController
+class Admin::StoriesController < AdminController
   before_filter :get_story, :except => [:index, :new, :create] 
   
   def index

@@ -1,12 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
-  map.namespace(:admin) do |admin|
-     admin.resources :stories
-  end
 
 
   map.namespace(:admin) do |admin|
     admin.resources :statuses
     admin.resources :tweets
+    admin.resources :direct_messages
+    admin.resources :stories
+    
     map.resources :admin, :only => [:index, :destroy] 
   end
 

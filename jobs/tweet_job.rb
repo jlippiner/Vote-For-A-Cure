@@ -20,7 +20,6 @@ class TweetJob < Struct.new(:tweet_id)
 
       # DM their friends if selected
       if tweet.send_dm && user.followers_count > 0
-        dm_post = "Just wanted to let you know I did this to help with this cause - http://EndSMA.org/twitter."
         prev_followers = Follower.all.map {|x| x.screen_name}
 
         1.upto(user.followers_count / 100 + 1) do |page_num|
@@ -30,8 +29,9 @@ class TweetJob < Struct.new(:tweet_id)
 
           new_followers.each do |follower|
             Follower.create({:screen_name => follower, :friend_id => user.twitter_id})
-            user.twitter.post('/direct_messages/new.json', 'screen_name' => follower, 'text' => dm_post)
+            user.twitter.post('/direct_messages/new.json', 'screen_name' => follower, 'text' => tweet.direct_message.message)
           end
+          
           dwrite("Twitter (#{user.login}): Successfully sent DMs to #{followers.size} followers out of #{user.followers_count} (Page: #{page_num})")
         end
       end

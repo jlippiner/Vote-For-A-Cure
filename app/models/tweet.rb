@@ -15,6 +15,14 @@
 class Tweet < ActiveRecord::Base
   belongs_to :user
   belongs_to :status
+  belongs_to :direct_message
   
-end
+  before_create :add_status_and_direct_message
+  
+  private
+  
+  def add_status_and_direct_message
+    self.direct_message = DirectMessage.random
+  end
 
+end

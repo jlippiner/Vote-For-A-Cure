@@ -1,0 +1,21 @@
+#direct_messages
+  #index
+    - title "Direct Messages"
+
+    %table.fancy
+      %tr
+        %th Name
+        %th Message
+        %th Active
+        %th(colspan="3")
+      - for direct_message in @direct_messages
+        %tr
+          %td= h direct_message.name
+          %td= h direct_message.message
+          %td= h direct_message.active
+          %td= link_to 'Show', [:admin, direct_message]
+          %td= link_to 'Edit', edit_admin_direct_message_path(direct_message)
+          %td= link_to 'Destroy', [:admin, direct_message], :confirm => 'Are you sure?', :method => :delete
+
+    %br
+    %p= link_to "+ New Direct Message", new_admin_direct_message_path

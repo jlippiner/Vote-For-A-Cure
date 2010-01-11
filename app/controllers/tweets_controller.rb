@@ -1,15 +1,18 @@
 class TweetsController < ApplicationController
-  before_filter :login_required, :only => [:edit, :update]
+  before_filter :login_required, :only => [:edit, :update, :show]
 
   def index
     @tweets = Tweet.all
   end
 
   def show
+    @user = current_user
+    logout_keeping_session!
   end
 
   def new
-    @tweet = Tweet.new()
+    @tweet = Tweet.new({:status => Status.random})
+    @story = Story.random
     @profile_pics = User.find(:all, :conditions => "profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%'", :order => "created_at DESC").collect {|x| x.profile_image_url}
     @tweet_reach = commify(User.find(:first, :select => "SUM(followers_count) as reach").reach)
     @tweet_count = commify(User.count(:conditions => 'login IS NOT null'))
@@ -27,10 +30,10 @@ class TweetsController < ApplicationController
 
   def edit
     @tweet = Tweet.find_by_id(session[:tweet_id])
-    if current_user.tweet then # => check to see if they have already tweeted
+    if @current_user.tweet  # => check to see if they have already tweeted
       @tweet.delete # => remove since duplicate
-      redirect_to current_user.tweet
-    elsif @tweet && current_user
+      redirect_to @current_user.tweet
+    elsif @tweet && @current_user
       update
     else
       flash.error = "Something went wrong.  Please try again."
@@ -38,7 +41,7 @@ class TweetsController < ApplicationController
   end
 
   def update
-    if @tweet.update_attributes({:user => current_user})
+    if @tweet.update_attributes({:user => @current_user})
       flash[:notice] = "Successfully updated tweet."
       Delayed::Job.enqueue TweetJob.new(@tweet.id)
 

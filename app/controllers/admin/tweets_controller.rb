@@ -1,8 +1,8 @@
-class Admin::TweetsController < ApplicationController
+class Admin::TweetsController < AdminController
   before_filter :get_tweet, :except => [:index, :new, :create] 
   
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all(:order => "created_at DESC")
   end
   
   def show

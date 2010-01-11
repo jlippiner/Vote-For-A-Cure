@@ -3,6 +3,8 @@
     - title "Story"
 
     %p
+      = image_tag(@story.picture.url, :border => "0")
+    %p
       %strong Name:
       =h @story.name
     %p
@@ -11,18 +13,6 @@
     %p
       %strong Active:
       =h @story.active
-    %p
-      %strong Picture File Name:
-      =h @story.picture_file_name
-    %p
-      %strong Picture Content Type:
-      =h @story.picture_content_type
-    %p
-      %strong Picture File Size:
-      =h @story.picture_file_size
-    %p
-      %strong Picture Updated At:
-      =h @story.picture_updated_at
 
     %p
       = link_to "Edit", edit_admin_story_path(@story)

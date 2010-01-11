@@ -1,35 +1,31 @@
+- title @tweet.user.name, false
+
 #tweet
   #show
-    - title "Tweet"
+    %h1
+      = image_tag(@tweet.user.profile_image_url, :border => "0")
+      = @tweet.user.name
+      
+    %h2
+      = @tweet.completed ? 'Completed The Process' : 'DID NOT Complete The Process'
 
     %p
-      %strong Twitter:
-      =h @tweet.twitter_id
+      %strong Sent Direct Mesages:
+      =h @tweet.send_dm
     %p
-      %strong Sent Dm:
-      =h @tweet.sent_dm
-    %p
-      %strong Is Following:
-      =h @tweet.is_following
+      %strong Is Following Us:
+      =h @tweet.follow_us
     %p
       %strong Number Of Friends:
-      =h @tweet.number_of_friends
+      =h @tweet.user.friends_count
     %p
       %strong Number Of Followers:
-      =h @tweet.number_of_followers
+      =h @tweet.user.followers_count
     %p
-      %strong Profile Pic Url:
-      =h @tweet.profile_pic_url
-    %p
-      %strong Completed:
-      =h @tweet.completed
-    %p
-      %strong Status:
-      =h @tweet.status_id
+      %b Created Date:
+      =h @tweet.created_at
 
     %p
-      = link_to "Edit", edit_admin_tweet_path(@tweet)
-      |
       = link_to "Destroy", [:admin, @tweet], :confirm => 'Are you sure?', :method => :delete
       |
       = link_to "View All", admin_tweets_path

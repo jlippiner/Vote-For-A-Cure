@@ -17,7 +17,8 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem 'compass', :lib => 'compass', :source => "http://gems.github.com", :version => "=0.10.0.pre2"
   config.gem 'twitter-auth', :lib => 'twitter_auth'
-  # config.gem "haml-edge", :lib => 'haml'
+  config.gem 'paperclip'
+  config.gem 'haml', :lib=> 'haml', :version => ">=2.1.37"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

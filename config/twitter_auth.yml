@@ -3,7 +3,7 @@ development:
   oauth_consumer_key: 7CdYpMr1ShLddGg57zCgYg
   oauth_consumer_secret: UVWMO2A75Cdn0G1HZB9YPI4rV3cMkgMNK1GiFqvSX4
   base_url: "https://twitter.com"
-  authorize_path: "/oauth/authenticate"
+  authorize_path: "/oauth/authorize"
   api_timeout: 10
   remember_for: 14 # days
   oauth_callback: "http://vfac.dev:3000/tweets/oauth_callback"
@@ -13,7 +13,7 @@ test:
   oauth_consumer_key: 7CdYpMr1ShLddGg57zCgYg
   oauth_consumer_secret: UVWMO2A75Cdn0G1HZB9YPI4rV3cMkgMNK1GiFqvSX4
   base_url: "https://twitter.com"
-  authorize_path: "/oauth/authenticate"
+  authorize_path: "/oauth/authorize"
   api_timeout: 10
   remember_for: 14 # days
   oauth_callback: "http://vfac.dev:3000/tweets/oauth_callback"
@@ -22,7 +22,7 @@ production:
   strategy: oauth
   oauth_consumer_key: 62OzszKNYOaMYL1s0ZOEpA
   oauth_consumer_secret: Mjp3TstboDvTYbJzIll4GThT9gj2BDJMtbtPJ5nYDw 
-  authorize_path: "/oauth/authenticate"
+  authorize_path: "/oauth/authorize"
   base_url: "https://twitter.com"
   api_timeout: 10
   remember_for: 14 # days

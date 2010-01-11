@@ -11,10 +11,9 @@
   
       .story
         .picture
-          = image_tag("pics/gwen.jpg", :border => "0")
+          = image_tag @story.picture.url
         .copy
-          Our daughter Gwendolyn was born with SMA Type I.  She can't breath, eat or swallow on her 
-          own, but her mind is healthy and she has a zest for life
+          = @story.copy
         
     
       %p
@@ -25,11 +24,12 @@
         Please let others know that you support curing this terrible disease via Twitter.
         
         .message
-          I'm voting on Facebook to help save this couple's child, <a href="http://voteforacure.com" target="_blank">VoteForACure.com</a>
+          = @tweet.status.message
         
         The above tweet will be posted to your Twitter account after authorization. 
 
         - form_for @tweet do |f|
+          = f.hidden_field :status_id, :value => @tweet.status.id 
           %table.twitter(cellpadding="4")
             %tr
               %td

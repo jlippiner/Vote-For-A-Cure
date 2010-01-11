@@ -1,3 +1,10 @@
 class Story < ActiveRecord::Base
-  attr_accessible :name, :copy, :active, :picture_file_name, :picture_content_type, :picture_file_size, :picture_updated_at
+  has_attached_file :picture
+  
+  validates_presence_of :name, :copy
+  
+  def self.random
+    ids = connection.select_all("SELECT id FROM stories WHERE active = true")
+    find(ids[rand(ids.length)]["id"].to_i) unless ids.blank?
+  end
 end
