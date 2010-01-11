@@ -1,0 +1,9 @@
+.DS_Store
+tmp/*
+log/*
+doc/*
+config/*.yml
+public/users/*
+app/views/sandbox/*
+app/controllers/sandbox*
+!.gitignore
