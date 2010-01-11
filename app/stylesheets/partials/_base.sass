@@ -1,0 +1,279 @@
+@import compass/reset.sass
+@import blueprint
+@import blueprint/fancy_type.sass
+@import blueprint/typography.sass
+@import blueprint/interaction.sass
+@import partials/form.sass
+@import compass/utilities.sass
+@import partials/facebox.sass
+@import partials/jtip
+@import fancy_buttons.sass
+
++blueprint-typography
++blueprint-interaction
++mtt-form
+
+
+
+=left
+  :text-align left
+  
+=right
+  :text-align right
+  
+=middle
+  vertical-align: middle
+
+=center
+  text-align: center  
+  
+=border 
+  border: solid 1px gray
+  
+=border-red
+  border: dotted 2px red
+  
+=alt
+  :font-family "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif
+  :font-style italic  
+  
+=fancy
+  :font-family "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif
+
+=black-alt
+  :color #black
+  :font-weight bolder
+  :font-size 1.2em
+  +alt
+  
+=block
+  overflow: hidden
+  
+=bold
+  font-weight: bold
+  
+=underline
+  text-decoration: underline
+  
+=italic
+  text-style: italic
+  
+=normal
+  font-size= 12pt
+  font-weight: normal
+  
+=large
+  font-size: 1.15em
+
+=larger
+  font-size: 1.30em
+
+=largest
+  font-size: 1.5em
+  
+=huge
+  font-size: 2.5em
+  
+=small
+  font-size: .95em
+
+=smaller
+  font-size: .9em
+
+=smallest
+  font-size: .85em
+
+=formatted_table
+  +border
+  tr
+    th
+      background-color: #CCCCCC
+      +black-alt
+    th, td
+      +left
+      vertical-align: top
+      padding-left: 10px   
+      border-bottom: solid 1px #CCCCCC
+      
+=line
+  border-bottom: 1px dotted gray
+  
+=bottom-line
+  +line
+  margin-bottom: 3px
+  
+=info-box-label
+  +smaller
+  padding: 1px 8px 1px 4px
+  margin: 3px 3px 
+  width: 70px
+  +float-left
+  +right
+  
+=round-tl(!radius=5px)
+  -moz-border-radius-topleft= !radius
+  -webkit-border-top-left-radius= !radius
+
+=round-tr(!radius=5px)
+  -moz-border-radius-topright= !radius  
+  -webkit-border-top-right-radius= !radius  
+
+=round-bl(!radius=5px)
+  -moz-border-radius-bottomleft= !radius  
+  -webkit-border-bottom-left-radius= !radius
+
+=round-br(!radius=5px)
+  -moz-border-radius-bottomright= !radius        
+  -webkit-border-bottom-right-radius= !radius
+
+=round(!radius=5px)
+  +round-tl(!radius)
+  +round-tr(!radius)
+  +round-bl(!radius)
+  +round-br(!radius)
+  
+  
+=hide
+  display: none
+
+table.fancy
+  +formatted_table
+
+.block
+  +block
+  
+.top
+  vertical-align: top
+  
+.hidden
+  position: absolute
+  top: 0
+  left: -9999px
+  width: 1px
+  height: 1px
+  overflow: hidden
+
+.hide
+  +hide
+  
+.row
+  overflow: hidden
+  
+.right
+  text-align: right
+  
+.left 
+  text-align: left
+  
+.center
+  text-align: center
+  
+.float-left
+  +float-left
+  
+.float-right
+  +float-right
+  
+.float-center
+  margin: auto
+
+.typewriter
+  font-family: Courier
+
+.tooltip
+  padding: 10px
+  margin: 10px
+  width: 500px
+  background-color: white
+
+.gray
+  color: gray  
+  
+.red
+  color: #FF0000
+  font-weight: bold
+  
+.alt
+  +alt
+  
+.line
+  height: 5px
+  +bottom-line
+
+.small
+  +small
+  
+.smaller
+  +smaller
+  
+.smallest
+  +smallest
+  
+.labelOverlay
+  color: gray
+  
+.border-red
+  +border-red
+  
+.middle
+  +middle
+  
+.error
+  +error
+
+.warning
+  +error
+  
+.message
+  +success
+  
+.spinner
+  +round(3px)
+  border: 1px solid #666
+  vertical-align: baseline
+  width: 36px
+  height: 36px
+  background: #333 url(/images/spinner.gif)
+    
+caption, th, td
+  vertical-align: top
+  
+hr.fancy
+  border: none 0
+  border-top: 1px dotted gray
+  border-bottom: 1px solid gray
+  height: 2px
+  margin-bottom: 15px
+  
+.no-margins
+  margin: 0px
+  
+.no-padding
+  padding: 0px
+  
+.details
+  margin: 15px 0px
+  
+  .row
+    overflow: hidden
+    
+    .label
+      +float-left
+      width: 175px
+      
+    .value
+      +left
+      +bold
+
+#errorExplanation
+  +error
+  
+.fieldWithErrors
+  display: inline
+  
+  label
+    color: red
+    
+  input
+    border: 1px solid red
+

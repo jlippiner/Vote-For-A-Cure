@@ -1,0 +1,10 @@
+#tweet
+  #index
+    - title "Edit Tweet"
+
+    = render :partial => 'form'
+
+    %p
+      = link_to "Show", admin_tweet_path(@tweet)
+      |
+      = link_to "View All", admin_tweets_path

@@ -1,0 +1,68 @@
+= Smooth Migration Plugin
+
+The Smooth Migration plugin allows database migrations to continue running
+instead of aborting on failure. The rake db:migrate task will fail at the end
+of the migration instead of in the middle. This helps prevent getting stuck
+between migrations and needing to comment out code to continue migrating.
+
+== Requirements
+
+* Rails >= 1.2
+
+== Installation
+
+The traditional way:
+  ruby script/plugin install http://smooth-migration.googlecode.com/svn/trunk/smooth_migration/
+
+Or with piston:
+  piston import http://smooth-migration.googlecode.com/svn/trunk/smooth_migration/ vendor/plugins/smooth_migration
+  
+
+== Example
+
+=== Before Smooth Migration
+
+  == CreateSomeTable: migrating =================================================
+  -- create_table(:users)
+     -> 0.0039s
+  -- add_column(:users, :email, :string)
+     -> 0.0075s
+  -- add_column(:table_does_not_exist, :foo, :string)
+  rake aborted!
+  SQLite3::SQLException: no such table: table_does_not_exist: ALTER TABLE table_does_not_exist ADD "foo" varchar(255)
+
+  In this example, the migration created the users table, but then failed when attempting to
+  add a column to a table that does not exist.  One problem is that your database is still on the
+  previous schema version, so the next time you try to migrate, it will fail on creating the users table.
+
+=== After Smooth Migration
+
+  == CreateSomeTable: migrating =================================================
+  -- create_table(:users)
+     -> 0.0042s
+  -- add_column(:users, :email, :string)
+     -> 0.3769s
+  -- add_column(:table_does_not_exist, :foo, :string)
+     -> ActiveRecord::StatementInvalid
+     -> SQLite3::SQLException: no such table: table_does_not_exist: ALTER TABLE table_does_not_exist ADD "foo" varchar(255)
+  -- add_column(:users, :bar, :string)
+     -> 0.0081s
+  == CreateSomeTable: migrated (0.3910s) ========================================
+
+  rake aborted!
+  -- 1 Failures!  Review console output.
+  
+  The exception messages are displayed inline and the migration continues.  At the end of the migration
+  an exception is through to abort the rake task and a failure notice is displayed.
+
+
+== Usage
+
+Your migrations will become smooth after installing the plugin.  If you want to migrate the old way, use:
+  rake db:migrate SMOOTH=false
+  
+Or, in your environment configuration file:
+  SmoothMigration.disabled = true
+
+
+Copyright (c) 2007 Dan Manges, released under the MIT license.

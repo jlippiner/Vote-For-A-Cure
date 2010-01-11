@@ -1,0 +1,36 @@
+- form_for @tweet do |f|
+  = f.error_messages
+  %p
+    = f.label :twitter_id
+    %br
+    = f.text_field :twitter_id
+  %p
+    = f.label :sent_dm
+    %br
+    = f.check_box :sent_dm
+  %p
+    = f.label :is_following
+    %br
+    = f.check_box :is_following
+  %p
+    = f.label :number_of_friends
+    %br
+    = f.text_field :number_of_friends
+  %p
+    = f.label :number_of_followers
+    %br
+    = f.text_field :number_of_followers
+  %p
+    = f.label :profile_pic_url
+    %br
+    = f.text_field :profile_pic_url
+  %p
+    = f.label :completed
+    %br
+    = f.check_box :completed
+  %p
+    = f.label :status_id
+    %br
+    = f.text_field :status_id
+  %p
+    = f.submit "Submit"

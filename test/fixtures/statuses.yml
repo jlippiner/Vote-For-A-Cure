@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: statuses
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  message    :string(255)
+#  active     :boolean(1)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+one:
+  name: MyString
+  body: MyString
+  active: false
+
+two:
+  name: MyString
+  body: MyString
+  active: false
+

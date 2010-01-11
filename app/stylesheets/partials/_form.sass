@@ -1,0 +1,73 @@
+@import blueprint/modules/colors.sass
+
+// Mixin for producing Blueprint "inline" forms. Should be used with the mtt-form mixin.
+=mtt-inline-form
+  :line-height 3
+  p
+    :margin-bottom 0
+
+=mtt-form
+  +mtt-form-layout
+  +mtt-form-borders
+  +mtt-form-sizes
+
+=mtt-form-layout
+  form
+    label
+      :font-weight bold
+  fieldset
+    :padding 1.4em
+    :margin 0 0 1.5em 0
+  legend
+    :font-weight bold
+    :font-size 1.2em
+  input
+    :font-size 1.2em
+    &.text, &.title, &[type=text], &[type=password]
+      border: 1px solid gray
+      :margin 0em 0
+      :background #FFF url(/images/input_bg.png) repeat-x
+      :padding 5px
+      :font-size 1.2em
+    &.title  
+      :font-size 1.5em
+    &[type=checkbox], &.checkbox,
+    &[type=radio], &.radio
+      :position relative
+      :top 0em
+    &[type=submit]
+      :margin 10pt 10px
+      :padding 5px
+    &.text:focus, &.title:focus, &[type=text]:focus, &[type=password]:focus
+      :background #FFFFCC url(/images/input_bg.png) repeat-x
+  textarea
+    :margin 0em 0
+    :padding 5px    
+  select
+    :margin 0em 0
+    :font-size 1.2em
+  select:focus
+    :background #FFFFCC url(/images/input_bg.png) repeat-x
+  
+  form
+    .row
+      :margin-bottom 15px
+    
+  .controls
+
+=mtt-form-sizes(!input_width = 150px, !textarea_width = 390px, !textarea_height = 50px)
+  input.text, input.title
+    :width= !input_width
+  textarea
+    :width= !textarea_width
+    :height= !textarea_height
+
+=mtt-form-borders(!unfocused_border_color = #bbb, !focus_border_color = #666, !fieldset_border_color = #ccc)
+  fieldset
+    :border= 1px "solid" !fieldset_border_color
+  input.text, input.title,
+  textarea,
+  select
+    :border= 1px "solid" !unfocused_border_color
+    &:focus
+      :border= 1px "solid" !focus_border_color

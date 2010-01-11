@@ -1,0 +1,30 @@
+div.scrollable
+  position: relative
+  overflow: hidden
+  width: 660px
+  height: 114px
+  padding: 10px 0
+  border: 1px outset #ccc
+  background-color: #efefef
+
+  div.items
+    width: 20000em
+    position: absolute
+    clear: both
+    margin-left: 10px
+
+    div.item
+      float: left
+      text-align: center
+      width: 350px
+      padding: 25px 0px
+      font-size: 30px
+      font-family: 'bitstream vera sans'
+      border: 1px outset #ccc
+      background-color: #ddd
+      margin-right: 20px
+      -moz-border-radius: 5px
+
+      &.active
+        border: 1px inset #ccc
+        background-color: #fff

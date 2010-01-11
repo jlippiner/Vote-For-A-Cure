@@ -1,0 +1,30 @@
+#tweets
+  #index
+    - title "Tweets"
+
+    %table
+      %tr
+        %th Twitter
+        %th Sent dm
+        %th Is following
+        %th Number of friends
+        %th Number of followers
+        %th Profile pic url
+        %th Completed
+        %th Status
+        %th(colspan="3")
+      - for tweet in @tweets
+        %tr
+          %td= h tweet.twitter_id
+          %td= h tweet.sent_dm
+          %td= h tweet.is_following
+          %td= h tweet.number_of_friends
+          %td= h tweet.number_of_followers
+          %td= h tweet.profile_pic_url
+          %td= h tweet.completed
+          %td= h tweet.status_id
+          %td= link_to 'Show', [:admin, tweet]
+          %td= link_to 'Edit', edit_admin_tweet_path(tweet)
+          %td= link_to 'Destroy', [:admin, tweet], :confirm => 'Are you sure?', :method => :delete
+
+    %p= link_to "+ New Tweet", new_admin_tweet_path

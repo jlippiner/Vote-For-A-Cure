@@ -1,0 +1,10 @@
+#status
+  #index
+    - title "Edit Status"
+
+    = render :partial => 'form'
+
+    %p
+      = link_to "Show", admin_status_path(@status)
+      |
+      = link_to "View All", admin_statuses_path

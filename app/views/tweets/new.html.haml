@@ -1,0 +1,56 @@
+#tweet
+  #new
+    .uparrow
+      = image_tag("/images/twitter/arr2.gif", :border => "0", :align => "bottom" )
+
+    #box
+      %p
+        Help us end Spinal Muscular Atrophy (SMA), the #1 genetic killer of young children, by 
+        voting for The Gwendolyn Strong Foundation on Facebook.  It only takes 
+        30 seconds to make a difference.
+  
+      .story
+        .picture
+          = image_tag("pics/gwen.jpg", :border => "0")
+        .copy
+          Our daughter Gwendolyn was born with SMA Type I.  She can't breath, eat or swallow on her 
+          own, but her mind is healthy and she has a zest for life
+        
+    
+      %p
+        A cure is believed to be 5 years away.
+        %b Help save our daughter.
+
+      #twitter
+        Please let others know that you support curing this terrible disease via Twitter.
+        
+        .message
+          I'm voting on Facebook to help save this couple's child, <a href="http://voteforacure.com" target="_blank">VoteForACure.com</a>
+        
+        The above tweet will be posted to your Twitter account after authorization. 
+
+        - form_for @tweet do |f|
+          %table.twitter(cellpadding="4")
+            %tr
+              %td
+              %td
+                = f.check_box :follow_us
+                = f.label :follow_us, "Follow @gsfoundation on Twitter"
+            %tr
+              %td
+              %td
+                = f.check_box :send_dm
+                = f.label :send_dm, "Direct Message your followers to help end SMA! <b>(thank you!!)</b>", :class => 'dm'         
+      
+          .action
+            = submit_tag 'Vote For A Cure Now! >>', :id => "submit", :class => "button" 
+      
+    #wall
+      .title
+        = "#{pluralize(@tweet_count,'People')} Have Tweeted For A Cure!"
+      .subtitle
+        = "(Reaching over #{@tweet_reach} followers already!)"
+      - if @profile_pics
+        - @profile_pics.each do |pic|
+          %span.pic
+            = image_tag(pic, :border => "0", :alt => '', :width => 48, :height => 48)

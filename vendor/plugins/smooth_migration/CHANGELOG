@@ -1,0 +1,2 @@
+* March 02, 2007
+  * Fixed an issue on initialization: uninitialized constant Rails::Initializer::ActiveRecord::ActiveRecordError

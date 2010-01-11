@@ -1,0 +1,20 @@
+#status
+  #show
+    - title "Status"
+
+    %p
+      %strong Name:
+      =h @status.name
+    %p
+      %strong Body:
+      =h @status.body
+    %p
+      %strong Active:
+      =h @status.active
+
+    %p
+      = link_to "Edit", edit_admin_status_path(@status)
+      |
+      = link_to "Destroy", [:admin, @status], :confirm => 'Are you sure?', :method => :delete
+      |
+      = link_to "View All", admin_statuses_path

@@ -1,0 +1,139 @@
+.sf-menu
+  margin: 0 0 1em 0
+  padding: 0 0 .25em 25%
+  list-style: none
+  text-align: left
+  min-width: 700px 
+
+  *
+    margin: 0
+    padding: 0
+    list-style: none
+
+  ul
+    position: absolute
+    top: -999em
+    width: 10em
+
+    li
+      width: 100%
+      
+    li
+      .text
+        padding: .50em 0 .50em .50em
+      
+  a
+    display: block
+    position: relative
+    color: black
+    margin-left: 13px
+    text-decoration: none
+    font-size: 12pt
+    padding: .25em  
+    
+    &:hover
+      color: black
+      text-decoration: underline
+      
+    &:focus, &:hover, &:active
+      outline: 0
+
+    &.sf-with-ul
+      padding-right: 2.25em
+      min-width: 1px      
+
+  li
+    float: left
+    position: relative
+    
+
+    &:hover
+      visibility: inherit
+  
+    &:hover ul, &.sfHover ul
+      left: 1.5em
+      top: 1.65em
+      z-index: 99
+
+    li
+      background: #939E6F
+      padding: .25em  0 
+
+      li
+        background: #666633
+        padding: .25em 0
+
+    &:hover, &.sfHover
+      outline: 0
+
+
+ul.sf-menu li
+  &:hover li ul, &.sfHover li ul
+    top: -999em
+
+  li
+    &:hover ul, &.sfHover ul
+      left: 10em
+      top: 0
+
+    &:hover li ul, &.sfHover li ul
+      top: -999em
+
+    li
+      &:hover ul, &.sfHover ul
+        left: 10em
+        top: 0
+
+
+.sf-sub-indicator
+  position: absolute
+  display: block
+  right: .75em
+  top: 1.05em
+  width: 10px
+  height: 10px
+  text-indent: -999em
+  overflow: hidden
+  background: url('/stylesheets/superfish/arrows-ffffff.png') no-repeat -10px -100px
+
+
+a
+  > .sf-sub-indicator
+    top: .50em
+    background-position: 0 -100px
+
+  &:focus > .sf-sub-indicator, &:hover > .sf-sub-indicator, &:active > .sf-sub-indicator
+    background-position: -10px -100px
+
+
+li
+  &:hover > a > .sf-sub-indicator, &.sfHover > a > .sf-sub-indicator
+    background-position: -10px -100px
+
+
+.sf-menu ul
+  .sf-sub-indicator
+    background-position: -10px 0
+
+  a
+    > .sf-sub-indicator
+      background-position: 0 0
+
+    &:focus > .sf-sub-indicator, &:hover > .sf-sub-indicator, &:active > .sf-sub-indicator
+      background-position: -10px 0
+
+  li
+    &:hover > a > .sf-sub-indicator, &.sfHover > a > .sf-sub-indicator
+      background-position: -10px 0
+
+
+.sf-shadow ul
+  background: url('/stylesheets/superfish/shadow.png') no-repeat bottom right
+  padding: 0 8px 9px 0
+  -moz-border-radius-bottomleft: 17px
+  -moz-border-radius-topright: 17px
+  -webkit-border-top-right-radius: 17px
+  -webkit-border-bottom-left-radius: 17px
+
+  &.sf-shadow-off
+    background: transparent
