@@ -1,0 +1,32 @@
+#story
+  #show
+    - title "Story"
+
+    %p
+      %strong Name:
+      =h @story.name
+    %p
+      %strong Copy:
+      =h @story.copy
+    %p
+      %strong Active:
+      =h @story.active
+    %p
+      %strong Picture File Name:
+      =h @story.picture_file_name
+    %p
+      %strong Picture Content Type:
+      =h @story.picture_content_type
+    %p
+      %strong Picture File Size:
+      =h @story.picture_file_size
+    %p
+      %strong Picture Updated At:
+      =h @story.picture_updated_at
+
+    %p
+      = link_to "Edit", edit_admin_story_path(@story)
+      |
+      = link_to "Destroy", [:admin, @story], :confirm => 'Are you sure?', :method => :delete
+      |
+      = link_to "View All", admin_stories_path

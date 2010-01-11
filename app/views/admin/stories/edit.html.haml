@@ -1,0 +1,10 @@
+#story
+  #index
+    - title "Edit Story"
+
+    = render :partial => 'form'
+
+    %p
+      = link_to "Show", admin_story_path(@story)
+      |
+      = link_to "View All", admin_stories_path

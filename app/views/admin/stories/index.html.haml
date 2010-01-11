@@ -1,0 +1,28 @@
+#stories
+  #index
+    - title "Stories"
+
+    %table
+      %tr
+        %th Name
+        %th Copy
+        %th Active
+        %th Picture file name
+        %th Picture content type
+        %th Picture file size
+        %th Picture updated at
+        %th(colspan="3")
+      - for story in @stories
+        %tr
+          %td= h story.name
+          %td= h story.copy
+          %td= h story.active
+          %td= h story.picture_file_name
+          %td= h story.picture_content_type
+          %td= h story.picture_file_size
+          %td= h story.picture_updated_at
+          %td= link_to 'Show', [:admin, story]
+          %td= link_to 'Edit', edit_admin_story_path(story)
+          %td= link_to 'Destroy', [:admin, story], :confirm => 'Are you sure?', :method => :delete
+
+    %p= link_to "+ New Story", new_admin_story_path

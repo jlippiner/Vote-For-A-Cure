@@ -1,4 +1,4 @@
-class Admin::StatusesController < ApplicationController
+class Admin::StatusesController < AdminController
   before_filter :get_status, :except => [:index, :new, :create] 
   
   def index
@@ -9,7 +9,7 @@ class Admin::StatusesController < ApplicationController
   end
   
   def new
-    @status = Status.new
+    @status = Status.new({:active => true})
   end
   
   def create

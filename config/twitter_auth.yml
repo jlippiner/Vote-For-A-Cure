@@ -20,8 +20,8 @@ test:
 
 production:
   strategy: oauth
-  oauth_consumer_key: UlmyeVAQHv0y9Hefug
-  oauth_consumer_secret: SbB8WXFZHYQM8aP7jDpycCYPCQxI35N8OHG1FB1ic 
+  oauth_consumer_key: 62OzszKNYOaMYL1s0ZOEpA
+  oauth_consumer_secret: Mjp3TstboDvTYbJzIll4GThT9gj2BDJMtbtPJ5nYDw 
   authorize_path: "/oauth/authenticate"
   base_url: "https://twitter.com"
   api_timeout: 10

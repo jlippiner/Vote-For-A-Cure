@@ -12,5 +12,12 @@
 
 class Status < ActiveRecord::Base
   belongs_to :tweet
-end
 
+  validates_presence_of :name, :message
+  validates_length_of :message, :within => 1..144
+
+  def self.random
+    ids = connection.select_all("SELECT id FROM statuses WHERE active = true")
+    find(ids[rand(ids.length)]["id"].to_i) unless ids.blank?
+  end
+end

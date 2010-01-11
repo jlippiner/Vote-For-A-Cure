@@ -1181,51 +1181,61 @@ hr.fancy {
   -webkit-border-bottom-right-radius: 5px;
 }
 
-/* line 5, ../../../app/stylesheets/application.sass */
+/* line 2, ../../../app/stylesheets/partials/admin.sass */
+#admin #box {
+  width: 900px;
+  background: white;
+  border: 2px solid gray;
+  padding: 2em;
+}
+
+/* line 6, ../../../app/stylesheets/application.sass */
 html, body {
   margin: 0;
   padding: 0;
 }
 
-/* line 9, ../../../app/stylesheets/application.sass */
+/* line 10, ../../../app/stylesheets/application.sass */
 body {
   background: white url(/images/twitter/bg.gif);
   font-family: "Lucida Grande",Arial,Sans-serif;
   font-size: 13px;
   line-height: 18pt;
 }
-/* line 15, ../../../app/stylesheets/application.sass */
+/* line 16, ../../../app/stylesheets/application.sass */
 body #container {
   width: 960px;
   margin: 0 auto;
 }
-/* line 20, ../../../app/stylesheets/application.sass */
+/* line 21, ../../../app/stylesheets/application.sass */
 body #container #header #logo {
   margin: 0px;
-}
-/* line 23, ../../../app/stylesheets/application.sass */
-body #container #header #icons {
-  text-align: center;
-  margin-bottom: 2em;
-}
-/* line 26, ../../../app/stylesheets/application.sass */
-body #container #header #icons .icon {
   display: inline;
-  margin: 0px 10px;
+  float: left;
 }
-/* line 31, ../../../app/stylesheets/application.sass */
+/* line 25, ../../../app/stylesheets/application.sass */
+body #container #header #title {
+  text-align: center;
+  display: inline;
+  float: left;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-left: 3em;
+  margin-top: 1em;
+}
+/* line 35, ../../../app/stylesheets/application.sass */
 body #footer {
   padding-top: 50px;
   font-size: .8em;
   text-align: center;
 }
 
-/* line 36, ../../../app/stylesheets/application.sass */
+/* line 40, ../../../app/stylesheets/application.sass */
 #flash {
   margin: 0px;
 }
 
-/* line 39, ../../../app/stylesheets/application.sass */
+/* line 43, ../../../app/stylesheets/application.sass */
 .info_box {
   margin: 5px;
   font-size: 12pt;
@@ -1236,7 +1246,7 @@ body #footer {
   color: black;
 }
 
-/* line 47, ../../../app/stylesheets/application.sass */
+/* line 51, ../../../app/stylesheets/application.sass */
 .button {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
   background: url('/button_bg.png') repeat-x bottom left;

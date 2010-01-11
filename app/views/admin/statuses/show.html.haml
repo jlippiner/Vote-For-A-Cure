@@ -1,13 +1,13 @@
 #status
   #show
-    - title "Status"
+    - title "Status - #{@status.name}"
 
     %p
       %strong Name:
       =h @status.name
     %p
-      %strong Body:
-      =h @status.body
+      %strong Message:
+      =h @status.message
     %p
       %strong Active:
       =h @status.active

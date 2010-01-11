@@ -5,12 +5,15 @@
     %br
     = f.text_field :name
   %p
-    = f.label :body
+    = f.label :message
+    \- Characters Left: 
+    %span#chars_left
+      = (144- @status.message.length) unless @status.new_record?
     %br
-    = f.text_field :body
+    = f.text_area :message
   %p
-    = f.label :active
-    %br
     = f.check_box :active
+    = f.label :active
+
   %p
     = f.submit "Submit"

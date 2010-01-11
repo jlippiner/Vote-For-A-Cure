@@ -7621,3 +7621,2985 @@ ActionController::RoutingError (No route matches "/button_bg.png" with {:method=
   
 
 Rendering rescues/layout (not_found)
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTweets (20100111144722)
+Migrating to CreateAdminStatuses (20100111144759)
+Migrating to TwitterAuthMigration (20100111170503)
+Migrating to ChangeTweetTable (20100111171814)
+Migrating to ChangeBodyToMessageInStatus (20100111181719)
+Migrating to CreateDelayedJobs (20100111192045)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (163.7ms)[0m   [0mCREATE TABLE `delayed_jobs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `priority` int(11) DEFAULT 0, `attempts` int(11) DEFAULT 0, `handler` text, `last_error` varchar(255), `run_at` datetime, `locked_at` datetime, `failed_at` datetime, `locked_by` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (315.9ms)[0m   [0;1mCREATE INDEX `index_delayed_jobs_on_locked_by` ON `delayed_jobs` (`locked_by`)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100111192045')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `delayed_jobs`[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1mdescribe `delayed_jobs`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSHOW KEYS FROM `delayed_jobs`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mdescribe `statuses`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `statuses`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mdescribe `tweets`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSHOW KEYS FROM `tweets`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+*** Starting job worker host:joshua-lippiners-macbook-pro.local pid:36749
+  [4;35;1mUser Delete all (58.0ms)[0m   [0mDELETE FROM `users` [0m
+  [4;36;1mTweet Delete all (1.2ms)[0m   [0;1mDELETE FROM `tweets` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 14:46:17) [GET]
+  [4;36;1mTweet Columns (21.7ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 48ms (View: 7, DB: 27) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 14:46:17) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#create (for 127.0.0.1 at 2010-01-11 14:46:23) [POST]
+  Parameters: {"commit"=>"Vote For A Cure Now! >>", "authenticity_token"=>"lg9Npt0QYtv+/w5N42sHVVw0ztKq67xI0HGwfiHXLBM=", "tweet"=>{"follow_us"=>"1", "send_dm"=>"0"}}
+  [4;35;1mTweet Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mSQL (41.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTweet Create (0.2ms)[0m   [0mINSERT INTO `tweets` (`created_at`, `completed`, `updated_at`, `follow_us`, `user_id`, `send_dm`, `status_id`) VALUES('2010-01-11 19:46:23', 0, '2010-01-11 19:46:23', 1, NULL, 0, NULL)[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://vfac.dev:3000/tweets/11/edit
+Completed in 54ms (DB: 45) | 302 Found [http://vfac.dev/tweets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#edit (for 127.0.0.1 at 2010-01-11 14:46:23) [GET]
+  Parameters: {"id"=>"11"}
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 30ms (DB: 4) | 302 Found [http://vfac.dev/tweets/11/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-01-11 14:46:23) [GET]
+Redirected to https://twitter.com/oauth/authenticate?oauth_token=HDSUisTR92Tx29yGpz6gGZFk3d7mNKPzYCQwoUd0&oauth_callback=http%3A%2F%2Fvfac.dev%3A3000%2Ftweets%2Foauth_callback
+Completed in 1093ms (DB: 0) | 302 Found [http://vfac.dev/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#oauth_callback (for 127.0.0.1 at 2010-01-11 14:46:25) [GET]
+  Parameters: {"oauth_token"=>"HDSUisTR92Tx29yGpz6gGZFk3d7mNKPzYCQwoUd0", "oauth_verifier"=>"GgUjCx873ODlmje1ErhtVlhXdoKrGfm4yHuBs0yNM"}
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (38.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`twitter_id` = '6608062') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'jlippiner') LIMIT 1[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`twitter_id` = BINARY '6608062') LIMIT 1[0m
+  [4;36;1mUser Create (0.2ms)[0m   [0;1mINSERT INTO `users` (`name`, `profile_sidebar_fill_color`, `profile_sidebar_border_color`, `profile_background_tiled`, `location`, `profile_image_url`, `created_at`, `access_secret`, `remember_token_expires_at`, `profile_link_color`, `updated_at`, `url`, `favourites_count`, `utc_offset`, `twitter_id`, `remember_token`, `protected`, `profile_text_color`, `followers_count`, `description`, `profile_background_color`, `time_zone`, `login`, `profile_background_image_url`, `friends_count`, `statuses_count`, `access_token`) VALUES('Joshua Lippiner', 'e0ff92', '87bc44', NULL, '', 'http://a3.twimg.com/profile_images/63490705/Photo_163_normal.jpg', '2010-01-11 19:46:27', 'dEtaZlVi4zhRva1fZELQBPV8K9imz6Fzt8UtAI94zY', NULL, '0000ff', '2010-01-11 19:46:27', NULL, 3, -36000, '6608062', NULL, 0, '000000', 116, 'www.viewsfromapontoon.com', '9ae4e8', 'Hawaii', 'jlippiner', 'http://s.twimg.com/a/1262981812/images/themes/theme1/bg.png', 39, 579, '6608062-l0ihkdt76LLUyKTLLI7bRQpP79KQ0xs0bSDpyiq8aY')[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'jlippiner' AND `users`.id <> 3) LIMIT 1[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`twitter_id` = BINARY '6608062' AND `users`.id <> 3) LIMIT 1[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`remember_token` = BINARY 'ea7e5f6ba8db2f823a51' AND `users`.id <> 3) LIMIT 1[0m
+  [4;36;1mUser Update (0.2ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-01-11 19:46:27', `remember_token_expires_at` = '2010-01-25 19:46:27', `remember_token` = 'ea7e5f6ba8db2f823a51' WHERE `id` = 3[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+Redirected to http://vfac.dev:3000/tweets/11/edit
+Completed in 1783ms (DB: 43) | 302 Found [http://vfac.dev/oauth_callback?oauth_token=HDSUisTR92Tx29yGpz6gGZFk3d7mNKPzYCQwoUd0&oauth_verifier=GgUjCx873ODlmje1ErhtVlhXdoKrGfm4yHuBs0yNM]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#edit (for 127.0.0.1 at 2010-01-11 14:46:27) [GET]
+  Parameters: {"id"=>"11"}
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mTweet Columns (3.1ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mTweet Load (1.2ms)[0m   [0mSELECT * FROM `tweets` WHERE (`tweets`.`id` = 11) LIMIT 1[0m
+  [4;36;1mTweet Load (0.1ms)[0m   [0;1mSELECT * FROM `tweets` WHERE (`tweets`.user_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTweet Update (0.2ms)[0m   [0;1mUPDATE `tweets` SET `updated_at` = '2010-01-11 19:46:27', `user_id` = 3 WHERE `id` = 11[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+
+NameError (uninitialized constant TweetsController::Delayed):
+  app/controllers/tweets_controller.rb:43:in `update'
+  app/controllers/tweets_controller.rb:34:in `edit'
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (117.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 14:46:37) [GET]
+  [4;36;1mTweet Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (3.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (4.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 30ms (View: 7, DB: 10) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 14:46:38) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 14:47:51) [GET]
+  [4;36;1mTweet Columns (68.1ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 426ms (View: 68, DB: 74) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 14:47:52) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#create (for 127.0.0.1 at 2010-01-11 14:47:55) [POST]
+  Parameters: {"commit"=>"Vote For A Cure Now! >>", "authenticity_token"=>"lg9Npt0QYtv+/w5N42sHVVw0ztKq67xI0HGwfiHXLBM=", "tweet"=>{"follow_us"=>"1", "send_dm"=>"1"}}
+  [4;35;1mTweet Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mSQL (35.8ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTweet Create (0.2ms)[0m   [0mINSERT INTO `tweets` (`created_at`, `completed`, `updated_at`, `follow_us`, `user_id`, `send_dm`, `status_id`) VALUES('2010-01-11 19:47:55', 0, '2010-01-11 19:47:55', 1, NULL, 1, NULL)[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://vfac.dev:3000/tweets/12/edit
+Completed in 48ms (DB: 39) | 302 Found [http://vfac.dev/tweets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#edit (for 127.0.0.1 at 2010-01-11 14:47:55) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mTweet Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mTweet Load (1.4ms)[0m   [0;1mSELECT * FROM `tweets` WHERE (`tweets`.`id` = 12) LIMIT 1[0m
+  [4;35;1mTweet Load (0.1ms)[0m   [0mSELECT * FROM `tweets` WHERE (`tweets`.user_id = 3) LIMIT 1[0m
+  [4;36;1mTweet Delete all (0.9ms)[0m   [0;1mDELETE FROM `tweets` WHERE (`id` IN (12)) [0m
+Redirected to http://vfac.dev:3000/tweets/11
+Completed in 39ms (DB: 7) | 302 Found [http://vfac.dev/tweets/12/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#show (for 127.0.0.1 at 2010-01-11 14:47:55) [GET]
+  Parameters: {"id"=>"11"}
+Rendering template within layouts/application
+Rendering tweets/show
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://vfac.dev/tweets/11]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mTweet Load (0.1ms)[0m   [0;1mSELECT * FROM `tweets` WHERE (`tweets`.user_id = 3) LIMIT 1[0m
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (40.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mDelayed::Job Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `delayed_jobs`[0m
+  [4;36;1mDelayed::Job Load (1.9ms)[0m   [0;1mSELECT * FROM `delayed_jobs` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 14:53:08) [GET]
+  [4;35;1mTweet Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 27ms (View: 8, DB: 7) | 200 OK [http://vfac.dev/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 14:53:09) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 14:53:24) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#create (for 127.0.0.1 at 2010-01-11 14:53:36) [POST]
+  Parameters: {"commit"=>"Vote For A Cure Now! >>", "authenticity_token"=>"lg9Npt0QYtv+/w5N42sHVVw0ztKq67xI0HGwfiHXLBM=", "tweet"=>{"follow_us"=>"1", "send_dm"=>"1"}}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (111.3ms)
+Rendered rescues/_request_and_response (2.5ms)
+Rendering rescues/layout (unprocessable_entity)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 14:53:39) [GET]
+  [4;36;1mTweet Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (40.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 66ms (View: 7, DB: 44) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 14:53:40) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#create (for 127.0.0.1 at 2010-01-11 14:53:41) [POST]
+  Parameters: {"commit"=>"Vote For A Cure Now! >>", "authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "tweet"=>{"follow_us"=>"1", "send_dm"=>"1"}}
+  [4;35;1mTweet Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mSQL (43.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTweet Create (0.3ms)[0m   [0mINSERT INTO `tweets` (`created_at`, `completed`, `updated_at`, `follow_us`, `user_id`, `send_dm`, `status_id`) VALUES('2010-01-11 19:53:41', 0, '2010-01-11 19:53:41', 1, NULL, 1, NULL)[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://vfac.dev:3000/tweets/13/edit
+Completed in 55ms (DB: 46) | 302 Found [http://vfac.dev/tweets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#edit (for 127.0.0.1 at 2010-01-11 14:53:41) [GET]
+  Parameters: {"id"=>"13"}
+Redirected to http://vfac.dev:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://vfac.dev/tweets/13/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-01-11 14:53:41) [GET]
+Redirected to https://twitter.com/oauth/authenticate?oauth_token=gqGkDIQdu3qFQT76jKPworX483CboAJsVj35o0uk&oauth_callback=http%3A%2F%2Fvfac.dev%3A3000%2Ftweets%2Foauth_callback
+Completed in 1023ms (DB: 0) | 302 Found [http://vfac.dev/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#oauth_callback (for 127.0.0.1 at 2010-01-11 14:54:03) [GET]
+  Parameters: {"oauth_token"=>"gqGkDIQdu3qFQT76jKPworX483CboAJsVj35o0uk", "oauth_verifier"=>"w4QQU2ZlgnF64F2Q5hqQYYX3ysmJJcb4G5LVcIYSW8"}
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (34.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`twitter_id` = '63221544') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTwitterAuth::GenericUser Columns (27.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'endsma_dev') LIMIT 1[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`twitter_id` = BINARY '63221544') LIMIT 1[0m
+  [4;35;1mUser Create (0.2ms)[0m   [0mINSERT INTO `users` (`name`, `profile_sidebar_fill_color`, `profile_sidebar_border_color`, `profile_background_tiled`, `location`, `profile_image_url`, `created_at`, `access_secret`, `remember_token_expires_at`, `profile_link_color`, `updated_at`, `url`, `favourites_count`, `utc_offset`, `twitter_id`, `remember_token`, `protected`, `profile_text_color`, `followers_count`, `description`, `profile_background_color`, `time_zone`, `login`, `profile_background_image_url`, `friends_count`, `statuses_count`, `access_token`) VALUES('EndSMA dev', 'e0ff92', '87bc44', NULL, '', 'http://s.twimg.com/a/1262981812/images/default_profile_1_normal.png', '2010-01-11 19:54:05', 'j467ir74rhhRgS5j1HLaepZS6bkymH1hVuGkqRCeuuU', NULL, '0000ff', '2010-01-11 19:54:05', NULL, 0, -28800, '63221544', NULL, 0, '000000', 4, '', '9ae4e8', 'Pacific Time (US & Canada)', 'endsma_dev', 'http://s.twimg.com/a/1262981812/images/themes/theme1/bg.png', 3, 100, '63221544-MRcgp7pNzyCbdhAxl3EGFf799bXc1p3TiLtAhIMWA')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'endsma_dev' AND `users`.id <> 4) LIMIT 1[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`twitter_id` = BINARY '63221544' AND `users`.id <> 4) LIMIT 1[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`remember_token` = BINARY '5615c069814426a87524' AND `users`.id <> 4) LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-01-11 19:54:06', `remember_token_expires_at` = '2010-01-25 19:54:05', `remember_token` = '5615c069814426a87524' WHERE `id` = 4[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://vfac.dev:3000/tweets/13/edit
+Completed in 2332ms (DB: 68) | 302 Found [http://vfac.dev/oauth_callback?oauth_token=gqGkDIQdu3qFQT76jKPworX483CboAJsVj35o0uk&oauth_verifier=w4QQU2ZlgnF64F2Q5hqQYYX3ysmJJcb4G5LVcIYSW8]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#edit (for 127.0.0.1 at 2010-01-11 14:54:06) [GET]
+  Parameters: {"id"=>"13"}
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+  [4;35;1mTweet Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mTweet Load (1.1ms)[0m   [0;1mSELECT * FROM `tweets` WHERE (`tweets`.`id` = 13) LIMIT 1[0m
+  [4;35;1mTweet Load (0.1ms)[0m   [0mSELECT * FROM `tweets` WHERE (`tweets`.user_id = 4) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTweet Update (0.2ms)[0m   [0mUPDATE `tweets` SET `updated_at` = '2010-01-11 19:54:06', `user_id` = 4 WHERE `id` = 13[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCOMMIT[0m
+
+NameError (uninitialized constant TweetsController::TweetJob):
+  app/controllers/tweets_controller.rb:43:in `update'
+  app/controllers/tweets_controller.rb:34:in `edit'
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (112.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#edit (for 127.0.0.1 at 2010-01-11 14:54:50) [GET]
+  Parameters: {"id"=>"13"}
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+  [4;36;1mTweet Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mTweet Load (3.9ms)[0m   [0mSELECT * FROM `tweets` WHERE (`tweets`.`id` = 13) LIMIT 1[0m
+  [4;36;1mTweet Load (0.1ms)[0m   [0;1mSELECT * FROM `tweets` WHERE (`tweets`.user_id = 4) LIMIT 1[0m
+  [4;35;1mTweet Delete all (1.2ms)[0m   [0mDELETE FROM `tweets` WHERE (`id` IN (13)) [0m
+Redirected to http://vfac.dev:3000/tweets/13
+Completed in 46ms (DB: 10) | 302 Found [http://vfac.dev/tweets/13/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#show (for 127.0.0.1 at 2010-01-11 14:54:50) [GET]
+  Parameters: {"id"=>"13"}
+Rendering template within layouts/application
+Rendering tweets/show
+Completed in 19ms (View: 17, DB: 0) | 200 OK [http://vfac.dev/tweets/13]
+  [4;35;1mDelayed::Job Load (0.7ms)[0m   [0mSELECT * FROM `delayed_jobs` [0m
+Exiting...
+  [4;36;1mDelayed::Job Update (0.3ms)[0m   [0;1mUPDATE `delayed_jobs` SET locked_by = null, locked_at = null WHERE (locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36749') [0m
+  [4;36;1mDelayed::Job Load (0.3ms)[0m   [0;1mSELECT * FROM `delayed_jobs` [0m
+  [4;35;1mDelayed::Job Load (1.2ms)[0m   [0mSELECT * FROM `delayed_jobs` [0m
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mTweet Load (0.2ms)[0m   [0;1mSELECT * FROM `tweets` ORDER BY tweets.id DESC LIMIT 1[0m
+  [4;35;1mTweet Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mUser Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (32.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM `users` [0m
+  [4;35;1mTweet Load (0.8ms)[0m   [0mSELECT * FROM `tweets` LIMIT 1[0m
+  [4;36;1mTweet Load (1.9ms)[0m   [0;1mSELECT * FROM `tweets` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 14:57:19) [GET]
+  [4;36;1mTweet Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (270.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 303ms (View: 16, DB: 274) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 14:57:19) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 14:57:21) [GET]
+  [4;35;1mTweet Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mUser Columns (36.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 59ms (View: 6, DB: 39) | 200 OK [http://vfac.dev/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 14:57:21) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mTweet Load (0.2ms)[0m   [0mSELECT * FROM `tweets` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#create (for 127.0.0.1 at 2010-01-11 14:57:46) [POST]
+  Parameters: {"commit"=>"Vote For A Cure Now! >>", "authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "tweet"=>{"follow_us"=>"1", "send_dm"=>"0"}}
+  [4;36;1mTweet Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mSQL (41.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mTweet Create (0.2ms)[0m   [0;1mINSERT INTO `tweets` (`created_at`, `completed`, `updated_at`, `follow_us`, `user_id`, `send_dm`, `status_id`) VALUES('2010-01-11 19:57:46', 0, '2010-01-11 19:57:46', 1, NULL, 0, NULL)[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://vfac.dev:3000/tweets/14/edit
+Completed in 54ms (DB: 45) | 302 Found [http://vfac.dev/tweets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#edit (for 127.0.0.1 at 2010-01-11 14:57:46) [GET]
+  Parameters: {"id"=>"14"}
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+  [4;36;1mTweet Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mTweet Load (1.0ms)[0m   [0mSELECT * FROM `tweets` WHERE (`tweets`.`id` = 14) LIMIT 1[0m
+  [4;36;1mTweet Load (0.1ms)[0m   [0;1mSELECT * FROM `tweets` WHERE (`tweets`.user_id = 4) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTweet Update (0.2ms)[0m   [0;1mUPDATE `tweets` SET `updated_at` = '2010-01-11 19:57:46', `user_id` = 4 WHERE `id` = 14[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDelayed::Job Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `delayed_jobs`[0m
+
+TypeError (wrong argument type nil (expected Data)):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/yaml.rb:391:in `emit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/yaml.rb:391:in `quick_emit'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/yaml/rubytypes.rb:86:in `to_yaml'
+  app/controllers/tweets_controller.rb:43:in `update'
+  app/controllers/tweets_controller.rb:34:in `edit'
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (108.2ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 14:58:00) [GET]
+  [4;35;1mTweet Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mUser Columns (38.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 63ms (View: 7, DB: 42) | 200 OK [http://vfac.dev/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 14:58:01) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mTweet Load (0.2ms)[0m   [0;1mSELECT * FROM `tweets` [0m
+  [4;35;1mTweet Columns (38.8ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mTweet Load (0.8ms)[0m   [0;1mSELECT * FROM `tweets` ORDER BY tweets.id DESC LIMIT 1[0m
+  [4;35;1mTweet Load (0.3ms)[0m   [0mSELECT * FROM `tweets` ORDER BY tweets.id DESC LIMIT 1[0m
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (42.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;36;1mTweet Columns (3.2ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mTweet Load (3.3ms)[0m   [0mSELECT * FROM `tweets` ORDER BY tweets.id DESC LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;35;1mDelayed::Job Columns (38.7ms)[0m   [0mSHOW FIELDS FROM `delayed_jobs`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDelayed::Job Create (0.3ms)[0m   [0mINSERT INTO `delayed_jobs` (`failed_at`, `locked_by`, `created_at`, `handler`, `updated_at`, `priority`, `run_at`, `attempts`, `locked_at`, `last_error`) VALUES(NULL, NULL, '2010-01-11 19:58:54', '--- !ruby/struct:TweetJob \ntweet: !ruby/object:User \n attributes: \n profile_background_tiled: \n profile_sidebar_border_color: 87bc44\n profile_sidebar_fill_color: e0ff92\n name: EndSMA dev\n created_at: 2010-01-11 19:54:05\n profile_image_url: http://s.twimg.com/a/1262981812/images/default_profile_1_normal.png\n location: \"\"\n profile_link_color: 0000ff\n remember_token_expires_at: 2010-01-25 19:54:05\n access_secret: j467ir74rhhRgS5j1HLaepZS6bkymH1hVuGkqRCeuuU\n updated_at: 2010-01-11 19:54:06\n favourites_count: \"0\"\n url: \n utc_offset: \"-28800\"\n id: \"4\"\n followers_count: \"4\"\n profile_text_color: \"000000\"\n protected: \"0\"\n remember_token: 5615c069814426a87524\n twitter_id: \"63221544\"\n time_zone: Pacific Time (US & Canada)\n profile_background_color: 9ae4e8\n description: \"\"\n statuses_count: \"100\"\n friends_count: \"3\"\n profile_background_image_url: http://s.twimg.com/a/1262981812/images/themes/theme1/bg.png\n login: endsma_dev\n access_token: 63221544-MRcgp7pNzyCbdhAxl3EGFf799bXc1p3TiLtAhIMWA\n attributes_cache: \n created_at: 2010-01-11 19:54:05 Z\n remember_token_expires_at: 2010-01-25 19:54:05 Z\n updated_at: 2010-01-11 19:54:06 Z\n', '2010-01-11 19:58:54', 0, '2010-01-11 19:58:54', 0, NULL, NULL)[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDelayed::Job Load (0.3ms)[0m   [0mSELECT * FROM `delayed_jobs` [0m
+** TwitterAuth initialized properly.
+*** Starting job worker host:joshua-lippiners-macbook-pro.local pid:36951
+  [4;36;1mDelayed::Job Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `delayed_jobs`[0m
+  [4;35;1mDelayed::Job Update (38.0ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 19:59:10', locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36951' WHERE (id = 1 and (locked_at is null or locked_at < '2010-01-11 15:59:10') and (run_at <= '2010-01-11 19:59:10')) [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36951)] acquired lock on TweetJob
+==> Twitter Process: Oauth - STARTING PROCESS OF TWEET at Mon Jan 11 14:59:10 -0500 2010 for Tweet ID : 2173980440
+* [JOB] host:joshua-lippiners-macbook-pro.local pid:36951 failed with NoMethodError: undefined method `user' for #<YAML::Object:0x103289e30> - 0 failed attempts
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDelayed::Job Update (0.3ms)[0m   [0mUPDATE `delayed_jobs` SET `updated_at` = '2010-01-11 19:59:10', `last_error` = 'undefined method `user\' for #<YAML::Object:0x103289e30>\n./jobs/tweet_job.rb:7:in `perform\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/job.rb:102:in `invoke_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:74:in `run\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:129:in `reserve_and_run_one_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:138:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `times\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:53:in `start\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:52:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `loop\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/tasks.rb:13\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `call\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:597:in `invoke_with_call_chain\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:590:in `invoke_with_call_chain\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:583:in `invoke\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2051:in `invoke_task\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2023:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2001:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:1998:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/bin/rake:31\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19:in `load\'\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19', `run_at` = '2010-01-11 19:59:16', `attempts` = 1 WHERE `id` = 1[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDelayed::Job Update (0.9ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 19:59:10' WHERE (id = 1 and locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36951') [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36951)] failed to acquire exclusive lock for TweetJob
+1 jobs processed at 8.6289 j/s, 1 failed ...
+  [4;36;1mDelayed::Job Update (0.9ms)[0m   [0;1mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 19:59:10' WHERE (id = 1 and locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36951') [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36951)] failed to acquire exclusive lock for TweetJob
+  [4;35;1mDelayed::Job Update (1.0ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 19:59:15' WHERE (id = 1 and locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36951') [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36951)] acquired lock on TweetJob
+==> Twitter Process: Oauth - STARTING PROCESS OF TWEET at Mon Jan 11 14:59:15 -0500 2010 for Tweet ID : 2173899460
+* [JOB] host:joshua-lippiners-macbook-pro.local pid:36951 failed with NoMethodError: undefined method `user' for #<YAML::Object:0x103262588> - 1 failed attempts
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDelayed::Job Update (0.3ms)[0m   [0mUPDATE `delayed_jobs` SET `updated_at` = '2010-01-11 19:59:15', `locked_at` = NULL, `last_error` = 'undefined method `user\' for #<YAML::Object:0x103262588>\n./jobs/tweet_job.rb:7:in `perform\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/job.rb:102:in `invoke_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:74:in `run\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:129:in `reserve_and_run_one_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:138:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `times\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:53:in `start\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:52:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `loop\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/tasks.rb:13\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `call\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:597:in `invoke_with_call_chain\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:590:in `invoke_with_call_chain\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:583:in `invoke\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2051:in `invoke_task\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2023:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2001:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:1998:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/bin/rake:31\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19:in `load\'\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19', `run_at` = '2010-01-11 19:59:36', `attempts` = 2, `locked_by` = NULL WHERE `id` = 1[0m
+  [4;36;1mSQL (35.0ms)[0m   [0;1mCOMMIT[0m
+1 jobs processed at 23.8397 j/s, 1 failed ...
+  [4;35;1mDelayed::Job Update (1.1ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 19:59:40', locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36951' WHERE (id = 1 and (locked_at is null or locked_at < '2010-01-11 15:59:40') and (run_at <= '2010-01-11 19:59:40')) [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36951)] acquired lock on TweetJob
+==> Twitter Process: Oauth - STARTING PROCESS OF TWEET at Mon Jan 11 14:59:40 -0500 2010 for Tweet ID : 2173807620
+* [JOB] host:joshua-lippiners-macbook-pro.local pid:36951 failed with NoMethodError: undefined method `user' for #<YAML::Object:0x103235808> - 2 failed attempts
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDelayed::Job Update (0.3ms)[0m   [0mUPDATE `delayed_jobs` SET `updated_at` = '2010-01-11 19:59:40', `last_error` = 'undefined method `user\' for #<YAML::Object:0x103235808>\n./jobs/tweet_job.rb:7:in `perform\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/job.rb:102:in `invoke_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:74:in `run\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:129:in `reserve_and_run_one_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:138:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `times\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:53:in `start\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:52:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `loop\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/tasks.rb:13\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `call\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:597:in `invoke_with_call_chain\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:590:in `invoke_with_call_chain\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:583:in `invoke\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2051:in `invoke_task\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2023:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2001:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:1998:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/bin/rake:31\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19:in `load\'\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19', `run_at` = '2010-01-11 20:01:06', `attempts` = 3 WHERE `id` = 1[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDelayed::Job Update (1.1ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 19:59:40' WHERE (id = 1 and locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36951') [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36951)] failed to acquire exclusive lock for TweetJob
+1 jobs processed at 23.2840 j/s, 1 failed ...
+  [4;36;1mDelayed::Job Update (1.1ms)[0m   [0;1mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 19:59:40' WHERE (id = 1 and locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36951') [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36951)] failed to acquire exclusive lock for TweetJob
+Exiting...
+  [4;35;1mDelayed::Job Update (1.2ms)[0m   [0mUPDATE `delayed_jobs` SET locked_by = null, locked_at = null WHERE (locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36951') [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mDelayed::Job Load (1.0ms)[0m   [0;1mSELECT * FROM `delayed_jobs` [0m
+  [4;35;1mDelayed::Job Delete all (1.1ms)[0m   [0mDELETE FROM `delayed_jobs` [0m
+  [4;36;1mDelayed::Job Load (0.4ms)[0m   [0;1mSELECT * FROM `delayed_jobs` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mTweet Load (0.2ms)[0m   [0mSELECT * FROM `tweets` ORDER BY tweets.id DESC LIMIT 1[0m
+  [4;36;1mTweet Columns (41.0ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mDelayed::Job Create (0.3ms)[0m   [0;1mINSERT INTO `delayed_jobs` (`failed_at`, `locked_by`, `created_at`, `handler`, `updated_at`, `priority`, `run_at`, `attempts`, `locked_at`, `last_error`) VALUES(NULL, NULL, '2010-01-11 20:00:43', '--- !ruby/struct:TweetJob \ntweet: 4\n', '2010-01-11 20:00:43', 0, '2010-01-11 20:00:43', 0, NULL, NULL)[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCOMMIT[0m
+** TwitterAuth initialized properly.
+*** Starting job worker host:joshua-lippiners-macbook-pro.local pid:36970
+  [4;36;1mDelayed::Job Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `delayed_jobs`[0m
+  [4;35;1mDelayed::Job Update (1.8ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 20:00:51', locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36970' WHERE (id = 2 and (locked_at is null or locked_at < '2010-01-11 16:00:51') and (run_at <= '2010-01-11 20:00:51')) [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36970)] acquired lock on TweetJob
+==> Twitter Process: Oauth - STARTING PROCESS OF TWEET at Mon Jan 11 15:00:51 -0500 2010 for Tweet ID : 
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDelayed::Job Destroy (0.2ms)[0m   [0mDELETE FROM `delayed_jobs` WHERE `id` = 2[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCOMMIT[0m
+* [JOB] host:joshua-lippiners-macbook-pro.local pid:36970 completed after 0.0027
+1 jobs processed at 12.2127 j/s, 0 failed ...
+Exiting...
+  [4;35;1mDelayed::Job Update (0.3ms)[0m   [0mUPDATE `delayed_jobs` SET locked_by = null, locked_at = null WHERE (locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36970') [0m
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mTweet Load (0.2ms)[0m   [0;1mSELECT * FROM `tweets` ORDER BY tweets.id DESC LIMIT 1[0m
+  [4;35;1mTweet Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (30.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;36;1mDelayed::Job Columns (5.8ms)[0m   [0;1mSHOW FIELDS FROM `delayed_jobs`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mDelayed::Job Create (0.2ms)[0m   [0;1mINSERT INTO `delayed_jobs` (`failed_at`, `locked_by`, `created_at`, `handler`, `updated_at`, `priority`, `run_at`, `attempts`, `locked_at`, `last_error`) VALUES(NULL, NULL, '2010-01-11 20:03:15', '--- !ruby/struct:TweetJob \ntweet_id: 14\n', '2010-01-11 20:03:15', 0, '2010-01-11 20:03:15', 0, NULL, NULL)[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mDelayed::Job Load (0.3ms)[0m   [0;1mSELECT * FROM `delayed_jobs` [0m
+  [4;35;1mDelayed::Job Load (0.3ms)[0m   [0mSELECT * FROM `delayed_jobs` LIMIT 1[0m
+  [4;36;1mDelayed::Job Load (0.2ms)[0m   [0;1mSELECT * FROM `delayed_jobs` LIMIT 1[0m
+** TwitterAuth initialized properly.
+*** Starting job worker host:joshua-lippiners-macbook-pro.local pid:36977
+  [4;36;1mDelayed::Job Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `delayed_jobs`[0m
+  [4;35;1mDelayed::Job Update (44.6ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 20:03:42', locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36977' WHERE (id = 3 and (locked_at is null or locked_at < '2010-01-11 16:03:42') and (run_at <= '2010-01-11 20:03:42')) [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36977)] acquired lock on TweetJob
+==> Twitter Process: Oauth - STARTING PROCESS OF TWEET at Mon Jan 11 15:03:42 -0500 2010 for Tweet ID : 14
+  [4;36;1mTweet Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mTweet Load (0.3ms)[0m   [0mSELECT * FROM `tweets` WHERE (`tweets`.`id` = 14) LIMIT 1[0m
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+* [JOB] host:joshua-lippiners-macbook-pro.local pid:36977 failed with NameError: undefined local variable or method `login' for #<struct TweetJob tweet_id=14> - 0 failed attempts
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDelayed::Job Update (0.4ms)[0m   [0mUPDATE `delayed_jobs` SET `updated_at` = '2010-01-11 20:03:43', `last_error` = 'undefined local variable or method `login\' for #<struct TweetJob tweet_id=14>\n./jobs/tweet_job.rb:15:in `perform\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/job.rb:102:in `invoke_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:74:in `run\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:129:in `reserve_and_run_one_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:138:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `times\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:53:in `start\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:52:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `loop\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/tasks.rb:13\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `call\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:597:in `invoke_with_call_chain\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:590:in `invoke_with_call_chain\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:583:in `invoke\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2051:in `invoke_task\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2023:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2001:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:1998:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/bin/rake:31\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19:in `load\'\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19', `run_at` = '2010-01-11 20:03:49', `attempts` = 1 WHERE `id` = 3[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDelayed::Job Update (1.0ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 20:03:43' WHERE (id = 3 and locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36977') [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36977)] acquired lock on TweetJob
+==> Twitter Process: Oauth - STARTING PROCESS OF TWEET at Mon Jan 11 15:03:43 -0500 2010 for Tweet ID : 14
+  [4;36;1mTweet Load (0.2ms)[0m   [0;1mSELECT * FROM `tweets` WHERE (`tweets`.`id` = 14) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+* [JOB] host:joshua-lippiners-macbook-pro.local pid:36977 failed with NameError: undefined local variable or method `login' for #<struct TweetJob tweet_id=14> - 1 failed attempts
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDelayed::Job Update (0.4ms)[0m   [0mUPDATE `delayed_jobs` SET `updated_at` = '2010-01-11 20:03:43', `locked_at` = NULL, `last_error` = 'undefined local variable or method `login\' for #<struct TweetJob tweet_id=14>\n./jobs/tweet_job.rb:15:in `perform\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/job.rb:102:in `invoke_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:74:in `run\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:129:in `reserve_and_run_one_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:138:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `times\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:53:in `start\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:52:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `loop\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/tasks.rb:13\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `call\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:597:in `invoke_with_call_chain\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:590:in `invoke_with_call_chain\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:583:in `invoke\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2051:in `invoke_task\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2023:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2001:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:1998:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/bin/rake:31\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19:in `load\'\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19', `run_at` = '2010-01-11 20:04:04', `attempts` = 2, `locked_by` = NULL WHERE `id` = 3[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+2 jobs processed at 1.1120 j/s, 2 failed ...
+Exiting...
+  [4;35;1mDelayed::Job Update (0.4ms)[0m   [0mUPDATE `delayed_jobs` SET locked_by = null, locked_at = null WHERE (locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36977') [0m
+  [4;35;1mUser Load (7.8ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+** TwitterAuth initialized properly.
+*** Starting job worker host:joshua-lippiners-macbook-pro.local pid:36980
+  [4;36;1mDelayed::Job Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `delayed_jobs`[0m
+  [4;35;1mDelayed::Job Update (1.2ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 20:04:54', locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36980' WHERE (id = 3 and (locked_at is null or locked_at < '2010-01-11 16:04:54') and (run_at <= '2010-01-11 20:04:54')) [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36980)] acquired lock on TweetJob
+==> Twitter Process: Oauth - STARTING PROCESS OF TWEET at Mon Jan 11 15:04:54 -0500 2010 for Tweet ID : 14
+  [4;36;1mTweet Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mTweet Load (0.2ms)[0m   [0mSELECT * FROM `tweets` WHERE (`tweets`.`id` = 14) LIMIT 1[0m
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+==> Twitter (endsma_dev): Logged in successful
+* [JOB] host:joshua-lippiners-macbook-pro.local pid:36980 failed with NoMethodError: undefined method `message' for nil:NilClass - 2 failed attempts
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDelayed::Job Update (0.3ms)[0m   [0mUPDATE `delayed_jobs` SET `updated_at` = '2010-01-11 20:04:55', `last_error` = 'undefined method `message\' for nil:NilClass\n/Users/jlippiner/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/whiny_nil.rb:52:in `method_missing\'\n./jobs/tweet_job.rb:18:in `perform\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/job.rb:102:in `invoke_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:74:in `run\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:129:in `reserve_and_run_one_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:138:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `times\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:53:in `start\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:52:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `loop\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/tasks.rb:13\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `call\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:597:in `invoke_with_call_chain\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:590:in `invoke_with_call_chain\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:583:in `invoke\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2051:in `invoke_task\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2023:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2001:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:1998:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/bin/rake:31\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19:in `load\'\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19', `run_at` = '2010-01-11 20:06:21', `attempts` = 3 WHERE `id` = 3[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mDelayed::Job Update (86.0ms)[0m   [0mUPDATE `delayed_jobs` SET locked_at = '2010-01-11 20:04:55' WHERE (id = 3 and locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36980') [0m
+* [Worker(host:joshua-lippiners-macbook-pro.local pid:36980)] acquired lock on TweetJob
+==> Twitter Process: Oauth - STARTING PROCESS OF TWEET at Mon Jan 11 15:04:55 -0500 2010 for Tweet ID : 14
+  [4;36;1mTweet Load (0.3ms)[0m   [0;1mSELECT * FROM `tweets` WHERE (`tweets`.`id` = 14) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+==> Twitter (endsma_dev): Logged in successful
+* [JOB] host:joshua-lippiners-macbook-pro.local pid:36980 failed with NoMethodError: undefined method `message' for nil:NilClass - 3 failed attempts
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mDelayed::Job Update (0.4ms)[0m   [0mUPDATE `delayed_jobs` SET `updated_at` = '2010-01-11 20:04:56', `locked_at` = NULL, `last_error` = 'undefined method `message\' for nil:NilClass\n/Users/jlippiner/.gem/ruby/1.8/gems/activesupport-2.3.5/lib/active_support/whiny_nil.rb:52:in `method_missing\'\n./jobs/tweet_job.rb:18:in `perform\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/job.rb:102:in `invoke_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/timeout.rb:62:in `timeout\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:75:in `run\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:74:in `run\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:129:in `reserve_and_run_one_job\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:138:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `times\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:137:in `work_off\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:53:in `start\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:52:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `loop\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/worker.rb:49:in `start\'\n/Users/jlippiner/Projects/vfac/vendor/plugins/delayed_job/lib/delayed/tasks.rb:13\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `call\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:636:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:631:in `execute\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:597:in `invoke_with_call_chain\'\n/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:590:in `invoke_with_call_chain\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:583:in `invoke\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2051:in `invoke_task\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `each\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2029:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2023:in `top_level\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2001:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:2068:in `standard_exception_handling\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/lib/rake.rb:1998:in `run\'\n/Users/jlippiner/.gem/ruby/1.8/gems/rake-0.8.7/bin/rake:31\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19:in `load\'\n/Users/jlippiner/.gem/ruby/1.8/bin/rake:19', `run_at` = '2010-01-11 20:09:17', `attempts` = 4, `locked_by` = NULL WHERE `id` = 3[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+2 jobs processed at 1.1383 j/s, 2 failed ...
+Exiting...
+  [4;35;1mDelayed::Job Update (0.3ms)[0m   [0mUPDATE `delayed_jobs` SET locked_by = null, locked_at = null WHERE (locked_by = 'host:joshua-lippiners-macbook-pro.local pid:36980') [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:20:05) [GET]
+
+ActionController::RoutingError (No route matches "/admin/status" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:20:07) [GET]
+
+SyntaxError (/Users/jlippiner/Projects/vfac/app/controllers/admin_controller.rb:7: dynamic constant assignment
+    AUTHORIZED = ['jlippiner','billstrong']
+                ^):
+  app/controllers/admin/statuses_controller.rb:1
+
+Rendered rescues/_trace (110.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:21:05) [GET]
+
+LoadError (Expected /Users/jlippiner/Projects/vfac/app/controllers/admin_controller.rb to define AdminController):
+  app/controllers/admin_controller.rb:1
+  app/controllers/admin/statuses_controller.rb:1
+
+Rendered rescues/_trace (39.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:21:22) [GET]
+
+NoMethodError (undefined method `require_user' for #<Admin::StatusesController:0x102e8db60>):
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (37.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:21:35) [GET]
+  [4;36;1mUser Columns (10.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+
+NoMethodError (undefined method `includes?' for ["jlippiner", "billstrong"]:Array):
+  app/controllers/admin_controller.rb:8:in `check_authorized'
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (37.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:21:45) [GET]
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (39.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/
+Filter chain halted as [:check_authorized] rendered_or_redirected.
+Completed in 51ms (DB: 42) | 302 Found [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 15:21:45) [GET]
+  [4;36;1mTweet Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 26ms (View: 7, DB: 6) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:21:46) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:25:36) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:26:04) [GET]
+
+ActionController::RoutingError (No route matches "/statuses" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:26:09) [GET]
+
+ActionController::RoutingError (No route matches "/admin" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+** TwitterAuth initialized properly.
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:26:54) [GET]
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/
+Filter chain halted as [:check_authorized] rendered_or_redirected.
+Completed in 12ms (DB: 2) | 302 Found [http://vfac.dev/admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 15:26:54) [GET]
+  [4;35;1mTweet Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.7ms)[0m   [0mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 25ms (View: 6, DB: 6) | 200 OK [http://vfac.dev/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:26:54) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:26:55) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:27:03) [GET]
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (37.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/
+Filter chain halted as [:check_authorized] rendered_or_redirected.
+Completed in 48ms (DB: 39) | 302 Found [http://vfac.dev/admin]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 15:27:03) [GET]
+  [4;36;1mTweet Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 26ms (View: 7, DB: 6) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:27:04) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.7ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:27:04) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:27:50) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:28:00) [GET]
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (43.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/
+
+NameError (uninitialized constant CGI::Session):
+  app/controllers/admin_controller.rb:12:in `check_authorized'
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (38.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:28:53) [GET]
+  [4;35;1mUser Columns (73.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (16.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/
+
+NameError (uninitialized constant AdminController::ActiveRecordStore):
+  app/controllers/admin_controller.rb:12:in `check_authorized'
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (128.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:29:15) [GET]
+  [4;35;1mUser Columns (51.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (24.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/
+  [4;35;1mActiveRecord::SessionStore::Session Load (0.0ms)[0m   [0mMysql::Error: Table 'vfac_development.sessions' doesn't exist: SELECT * FROM `sessions` [0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'vfac_development.sessions' doesn't exist: SELECT * FROM `sessions` ):
+  app/controllers/admin_controller.rb:12:in `check_authorized'
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (112.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (4.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:30:12) [GET]
+  [4;36;1mUser Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/
+
+NameError (uninitialized constant AdminController::Session):
+  app/controllers/admin_controller.rb:12:in `check_authorized'
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (46.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:32:51) [GET]
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (40.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/
+Filter chain halted as [:check_authorized] rendered_or_redirected.
+Completed in 52ms (DB: 42) | 302 Found [http://vfac.dev/admin]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 15:32:51) [GET]
+  [4;36;1mTweet Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 24ms (View: 6, DB: 5) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:32:52) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:32:56) [GET]
+Redirected to http://vfac.dev:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://vfac.dev/admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-01-11 15:32:57) [GET]
+Redirected to https://twitter.com/oauth/authenticate?oauth_token=NYE8z0ywxlCMP1JaAxeXTAJws60WSmM3WAvtT2Ejes&oauth_callback=http%3A%2F%2Fvfac.dev%3A3000%2Ftweets%2Foauth_callback
+Completed in 1069ms (DB: 0) | 302 Found [http://vfac.dev/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#oauth_callback (for 127.0.0.1 at 2010-01-11 15:33:35) [GET]
+  Parameters: {"oauth_token"=>"NYE8z0ywxlCMP1JaAxeXTAJws60WSmM3WAvtT2Ejes", "oauth_verifier"=>"jULmJKOVynOYbzJZDwsXf5o67MJnoBRIclgw4QAIJU"}
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (84.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`twitter_id` = '6608062') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTwitterAuth::GenericUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'jlippiner' AND `users`.id <> 3) LIMIT 1[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`twitter_id` = BINARY '6608062' AND `users`.id <> 3) LIMIT 1[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`remember_token` = BINARY 'ea7e5f6ba8db2f823a51' AND `users`.id <> 3) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'jlippiner' AND `users`.id <> 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`twitter_id` = BINARY '6608062' AND `users`.id <> 3) LIMIT 1[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`remember_token` = BINARY '88588b25f4752c14eede' AND `users`.id <> 3) LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-01-11 20:33:38', `remember_token_expires_at` = '2010-01-25 20:33:38', `remember_token` = '88588b25f4752c14eede' WHERE `id` = 3[0m
+  [4;36;1mSQL (22.1ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://vfac.dev:3000/admin
+Completed in 3751ms (DB: 112) | 302 Found [http://vfac.dev/oauth_callback?oauth_token=NYE8z0ywxlCMP1JaAxeXTAJws60WSmM3WAvtT2Ejes&oauth_verifier=jULmJKOVynOYbzJZDwsXf5o67MJnoBRIclgw4QAIJU]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:33:39) [GET]
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+
+ActionController::UnknownAction (No action responded to index. Actions: ):
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:33:56) [GET]
+  [4;35;1mUser Columns (3.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+
+ActionView::MissingTemplate (Missing template admin/index.erb in view path app/views:/Users/jlippiner/.gem/ruby/1.8/gems/twitter-auth-0.1.22/app/views):
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:34:17) [GET]
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 22ms (View: 9, DB: 3) | 200 OK [http://vfac.dev/admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:34:17) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (1.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:35:43) [GET]
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering admin/index
+
+ActionView::TemplateError (undefined local variable or method `status' for #<ActionView::Base:0x1033c1eb0>) on line #10 of app/views/admin/index.html.haml:
+7:         %b What we doing today?
+8:         
+9:       %ul
+10:         %li= link_to "Manage Message Statuses", [:admin, status]
+11:       
+12:       
+
+    app/views/admin/index.html.haml:10:in `_run_haml_app47views47admin47index46html46haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (45.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:37:02) [GET]
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 21ms (View: 7, DB: 4) | 200 OK [http://vfac.dev/admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:37:02) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:37:18) [GET]
+  [4;35;1mUser Columns (3.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/application
+Rendering admin/index
+Completed in 18ms (View: 3, DB: 6) | 200 OK [http://vfac.dev/admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (3.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:37:18) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:37:22) [GET]
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (38.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/application
+Rendering admin/statuses/index
+Completed in 67ms (View: 13, DB: 40) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:37:22) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:37:58) [GET]
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/application
+Rendering admin/statuses/index
+Completed in 21ms (View: 3, DB: 4) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:37:59) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:39:36) [GET]
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 61ms (View: 45, DB: 3) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:39:36) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:39:45) [GET]
+  [4;36;1mUser Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (40.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 67ms (View: 11, DB: 43) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:39:45) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:40:52) [GET]
+  [4;35;1mUser Columns (76.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.4ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 112ms (View: 20, DB: 78) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:40:52) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:41:09) [GET]
+  [4;36;1mUser Columns (32.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 52ms (View: 3, DB: 33) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:41:09) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:41:16) [GET]
+  [4;35;1mUser Columns (38.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 56ms (View: 3, DB: 40) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:41:16) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:41:22) [GET]
+  [4;36;1mUser Columns (16.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (9.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 42ms (View: 3, DB: 27) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:41:22) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:41:38) [GET]
+  [4;35;1mUser Columns (38.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 58ms (View: 3, DB: 40) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:41:39) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:41:48) [GET]
+  [4;36;1mUser Columns (42.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 61ms (View: 3, DB: 44) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:41:48) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:41:54) [GET]
+  [4;35;1mUser Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 105ms (View: 3, DB: 4) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:41:54) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:41:57) [GET]
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 126ms (View: 74, DB: 3) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:41:57) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:42:01) [GET]
+  [4;35;1mUser Columns (43.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 61ms (View: 3, DB: 45) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:42:01) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:42:15) [GET]
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 19ms (View: 3, DB: 3) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:42:16) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:42:29) [GET]
+  [4;35;1mUser Columns (41.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 60ms (View: 3, DB: 43) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:42:29) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:42:50) [GET]
+  [4;36;1mUser Columns (50.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 67ms (View: 2, DB: 52) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:42:50) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:42:59) [GET]
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 18ms (View: 3, DB: 4) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:42:59) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:43:11) [GET]
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 20ms (View: 3, DB: 3) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:43:11) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:43:17) [GET]
+  [4;35;1mUser Columns (37.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 54ms (View: 2, DB: 39) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:43:17) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:43:26) [GET]
+  [4;36;1mUser Columns (129.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (3.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 248ms (View: 99, DB: 133) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:43:26) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:43:32) [GET]
+  [4;35;1mUser Columns (48.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 65ms (View: 3, DB: 50) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:43:32) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:44:05) [GET]
+  [4;36;1mUser Columns (44.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (26.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+
+ActionView::TemplateError (admin_url failed to generate from {:controller=>"admin", :action=>"show"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["admin", :id] - are they all satisfied?) on line #19 of app/views/layouts/admin.html.haml:
+16:           = link_to image_tag("/images/vfac_logo.png", :border => "0"), root_url
+17:           
+18:         #title
+19:           = link_to "ADMIN SYSTEM", admin_path
+20: 
+21:       #flash
+22:         = render_flash_messages
+
+    (eval):16:in `admin_path'
+    app/views/layouts/admin.html.haml:19:in `_run_haml_app47views47layouts47admin46html46haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (153.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:44:12) [GET]
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (37.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+
+ActionView::TemplateError (undefined local variable or method `admins_path' for #<ActionView::Base:0x102db7f10>) on line #19 of app/views/layouts/admin.html.haml:
+16:           = link_to image_tag("/images/vfac_logo.png", :border => "0"), root_url
+17:           
+18:         #title
+19:           = link_to "ADMIN SYSTEM", admins_path
+20: 
+21:       #flash
+22:         = render_flash_messages
+
+    app/views/layouts/admin.html.haml:19:in `_run_haml_app47views47layouts47admin46html46haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (46.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:44:51) [GET]
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 28ms (View: 11, DB: 3) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:44:51) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:44:53) [GET]
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+Completed in 16ms (View: 3, DB: 3) | 200 OK [http://vfac.dev/admin]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:44:53) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:45:12) [GET]
+  [4;35;1mUser Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+Completed in 24ms (View: 6, DB: 6) | 200 OK [http://vfac.dev/admin]
+  [4;35;1mSQL (0.9ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:45:12) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:45:14) [GET]
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+Completed in 16ms (View: 3, DB: 3) | 200 OK [http://vfac.dev/admin]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:45:14) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:47:40) [GET]
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (38.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+Completed in 139ms (View: 88, DB: 41) | 200 OK [http://vfac.dev/admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:47:40) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (2.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:47:41) [GET]
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (37.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 58ms (View: 3, DB: 41) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:47:42) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 15:47:49) [GET]
+  [4;36;1mTweet Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (43.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 67ms (View: 6, DB: 48) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:47:50) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 15:48:20) [GET]
+  [4;35;1mTweet Columns (6.3ms)[0m   [0mSHOW FIELDS FROM `tweets`[0m
+  [4;36;1mUser Columns (13.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (3.9ms)[0m   [0mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 49ms (View: 7, DB: 24) | 200 OK [http://vfac.dev/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:48:21) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:48:24) [GET]
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+
+ActionView::TemplateError (undefined local variable or method `admin' for #<ActionView::Base:0x102f4d438>) on line #9 of app/views/admin/index.html.haml:
+6:     
+7:   %ul
+8:     %li= link_to "Manage Message Statuses", admin_statuses_path
+9:     %li= link_to "Log Out", admin, :method => :delete 
+10:   
+11:   
+
+    app/views/admin/index.html.haml:9:in `_run_haml_app47views47admin47index46html46haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (119.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:48:37) [GET]
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (42.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+
+ActionView::TemplateError (admin_url failed to generate from {:controller=>"admin", :action=>"destroy"} - you may have ambiguous routes, or you may need to supply additional parameters for this route.  content_url has the following required parameters: ["admin", :id] - are they all satisfied?) on line #9 of app/views/admin/index.html.haml:
+6:     
+7:   %ul
+8:     %li= link_to "Manage Message Statuses", admin_statuses_path
+9:     %li= link_to "Log Out", admin_path, :method => :delete 
+10:   
+11:   
+
+    (eval):16:in `admin_path'
+    app/views/admin/index.html.haml:9:in `_run_haml_app47views47admin47index46html46haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (154.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:49:05) [GET]
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (38.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+Completed in 64ms (View: 13, DB: 41) | 200 OK [http://vfac.dev/admin]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:49:05) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#destroy (for 127.0.0.1 at 2010-01-11 15:49:08) [DELETE]
+  Parameters: {"authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "id"=>"3"}
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (36.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+
+ActionController::UnknownAction (No action responded to destroy. Actions: delete and index):
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#destroy (for 127.0.0.1 at 2010-01-11 15:49:24) [DELETE]
+  Parameters: {"authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "id"=>"3"}
+  [4;36;1mUser Columns (3.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Redirected to http://vfac.dev:3000/
+Completed in 15ms (DB: 5) | 302 Found [http://vfac.dev/admin/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TweetsController#new (for 127.0.0.1 at 2010-01-11 15:49:25) [GET]
+  [4;36;1mTweet Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `tweets`[0m
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (profile_image_url is not null and profile_image_url not like '%default_profile_normal.png%') ORDER BY created_at DESC[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT SUM(followers_count) as reach FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `users` WHERE (login IS NOT null) [0m
+Rendering template within layouts/application
+Rendering tweets/new
+Completed in 25ms (View: 6, DB: 6) | 200 OK [http://vfac.dev/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:49:25) [GET]
+
+ActionController::RoutingError (No route matches "/button_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:49:31) [GET]
+Redirected to http://vfac.dev:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 1ms (DB: 0) | 302 Found [http://vfac.dev/admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-01-11 15:49:31) [GET]
+
+Errno::ECONNRESET (Connection reset by peer - SSL_connect):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:586:in `connect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:586:in `connect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:553:in `do_start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:542:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/net/http.rb:1035:in `request'
+  oauth (0.3.6) lib/oauth/consumer.rb:149:in `request'
+  oauth (0.3.6) lib/oauth/consumer.rb:183:in `token_request'
+  oauth (0.3.6) lib/oauth/consumer.rb:128:in `get_request_token'
+  /Users/jlippiner/.gem/ruby/1.8/gems/twitter-auth-0.1.22/app/controllers/sessions_controller.rb:7:in `new'
+  haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+  /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (41.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-01-11 15:49:43) [GET]
+Redirected to https://twitter.com/oauth/authenticate?oauth_token=9SgMTI4EVtmQyBfWBizAOs8oq2uN4O6zpKEQQFsMAsI&oauth_callback=http%3A%2F%2Fvfac.dev%3A3000%2Ftweets%2Foauth_callback
+Completed in 528ms (DB: 0) | 302 Found [http://vfac.dev/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SessionsController#oauth_callback (for 127.0.0.1 at 2010-01-11 15:49:45) [GET]
+  Parameters: {"oauth_token"=>"9SgMTI4EVtmQyBfWBizAOs8oq2uN4O6zpKEQQFsMAsI", "oauth_verifier"=>"jn4YlU3izFxPVuUmAAkYBUOYX1C3q7U66cHmqjTiE"}
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (36.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`twitter_id` = '6608062') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'jlippiner' AND `users`.id <> 3) LIMIT 1[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`twitter_id` = BINARY '6608062' AND `users`.id <> 3) LIMIT 1[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`remember_token` = BINARY '88588b25f4752c14eede' AND `users`.id <> 3) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'jlippiner' AND `users`.id <> 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`twitter_id` = BINARY '6608062' AND `users`.id <> 3) LIMIT 1[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`remember_token` = BINARY '03470e063ab3b1332f42' AND `users`.id <> 3) LIMIT 1[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-01-11 20:49:46', `remember_token_expires_at` = '2010-01-25 20:49:46', `remember_token` = '03470e063ab3b1332f42' WHERE `id` = 3[0m
+  [4;35;1mSQL (33.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://vfac.dev:3000/admin
+Completed in 1185ms (DB: 74) | 302 Found [http://vfac.dev/oauth_callback?oauth_token=9SgMTI4EVtmQyBfWBizAOs8oq2uN4O6zpKEQQFsMAsI&oauth_verifier=jn4YlU3izFxPVuUmAAkYBUOYX1C3q7U66cHmqjTiE]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:49:46) [GET]
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+Completed in 16ms (View: 3, DB: 3) | 200 OK [http://vfac.dev/admin]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:49:46) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:49:52) [GET]
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (40.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 62ms (View: 3, DB: 43) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:49:53) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:49:54) [GET]
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (39.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (6.6ms)
+Completed in 145ms (View: 90, DB: 43) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:49:54) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:49:55) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:49:56) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:50:21) [GET]
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (39.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (6.5ms)
+Completed in 72ms (View: 12, DB: 45) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:50:21) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:50:21) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:50:28) [GET]
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (35.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+
+ActionView::TemplateError (Inconsistent indentation: 5 spaces were used for indentation, but the rest of the document was indented using 2 spaces.) on line #9 of app/views/admin/statuses/_form.html.haml:
+6:     = f.text_field :name
+7:   %p
+8:     = f.label :message
+9:      - Characters Left: 
+10:     %span#chars_left
+11:       144
+12:     %br
+
+    app/views/admin/statuses/_form.html.haml:9
+    haml (2.2.16) rails/./lib/haml/precompiler.rb:150:in `tabs'
+    haml (2.2.16) rails/./lib/haml/precompiler.rb:132:in `instance_eval'
+    haml (2.2.16) rails/./lib/haml/precompiler.rb:132:in `tabs'
+    haml (2.2.16) rails/./lib/haml/precompiler.rb:988:in `block_opened?'
+    haml (2.2.16) rails/./lib/haml/precompiler.rb:375:in `push_script'
+    haml (2.2.16) rails/./lib/haml/precompiler.rb:223:in `process_line'
+    haml (2.2.16) rails/./lib/haml/precompiler.rb:177:in `precompile'
+    haml (2.2.16) rails/./lib/haml/engine.rb:114:in `initialize'
+    haml (2.2.16) rails/./lib/haml/template/plugin.rb:24:in `new'
+    haml (2.2.16) rails/./lib/haml/template/plugin.rb:24:in `compile'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers.rb:96:in `non_haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/admin/statuses/new.html.haml:5:in `_run_haml_app47views47admin47statuses47new46html46haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (62.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:50:33) [GET]
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (40.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (6.0ms)
+Completed in 73ms (View: 12, DB: 44) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:50:34) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:50:34) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:50:35) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#create (for 127.0.0.1 at 2010-01-11 15:50:48) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "status"=>{"name"=>"", "message"=>"", "active"=>"0"}}
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (42.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (78.9ms)
+Completed in 146ms (View: 82, DB: 47) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:50:49) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:50:49) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#create (for 127.0.0.1 at 2010-01-11 15:51:10) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "status"=>{"name"=>"", "message"=>"", "active"=>"0"}}
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (38.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (9.0ms)
+Completed in 71ms (View: 12, DB: 43) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:51:10) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:51:10) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AdminController#index (for 127.0.0.1 at 2010-01-11 15:51:14) [GET]
+  [4;35;1mUser Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (41.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/index
+Completed in 57ms (View: 3, DB: 44) | 200 OK [http://vfac.dev/admin]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:51:14) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:51:16) [GET]
+  [4;35;1mUser Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (40.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+Completed in 58ms (View: 3, DB: 43) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:51:16) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:51:18) [GET]
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (38.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (3.1ms)
+Completed in 67ms (View: 6, DB: 42) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:51:18) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:51:18) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.5ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:51:22) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:51:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:52:04) [GET]
+  [4;35;1mUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (39.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (2.6ms)
+Completed in 64ms (View: 5, DB: 44) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:52:04) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:52:04) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:52:05) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:52:59) [GET]
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (41.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (2.5ms)
+Completed in 65ms (View: 6, DB: 45) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:52:59) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:52:59) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:53:00) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:53:21) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/admin/statuses.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:54:08) [GET]
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (43.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (2.5ms)
+Completed in 75ms (View: 14, DB: 47) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:54:16) [GET]
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (41.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (3.0ms)
+Completed in 66ms (View: 6, DB: 45) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:54:16) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:54:31) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:54:44) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:54:45) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:55:18) [GET]
+  [4;35;1mUser Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (2.9ms)
+Completed in 115ms (View: 14, DB: 5) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:55:19) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:55:19) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:55:32) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#create (for 127.0.0.1 at 2010-01-11 15:55:36) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "status"=>{"name"=>"Default", "message"=>"I'm voting on Facebook to help save this couple's child, <a href=\"http://voteforacure.com\" target=\"_blank\">VoteForACure.com</a>", "active"=>"1"}}
+  [4;36;1mUser Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mStatus Create (0.2ms)[0m   [0;1mINSERT INTO `statuses` (`name`, `created_at`, `updated_at`, `message`, `active`) VALUES('Default', '2010-01-11 20:55:37', '2010-01-11 20:55:37', 'I\'m voting on Facebook to help save this couple\'s child, <a href=\"http://voteforacure.com\" target=\"_blank\">VoteForACure.com</a>', 1)[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://vfac.dev:3000/admin/statuses/1
+Completed in 95ms (DB: 7) | 302 Found [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#show (for 127.0.0.1 at 2010-01-11 15:55:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mStatus Load (1.2ms)[0m   [0mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/show
+
+ActionView::TemplateError (undefined method `body' for #<Status:0x102e8f618>) on line #10 of app/views/admin/statuses/show.html.haml:
+7:       =h @status.name
+8:     %p
+9:       %strong Body:
+10:       =h @status.body
+11:     %p
+12:       %strong Active:
+13:       =h @status.active
+
+    app/views/admin/statuses/show.html.haml:10:in `_run_haml_app47views47admin47statuses47show46html46haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (122.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#show (for 127.0.0.1 at 2010-01-11 15:56:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (36.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mStatus Load (1.1ms)[0m   [0mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/show
+Completed in 68ms (View: 10, DB: 42) | 200 OK [http://vfac.dev/admin/statuses/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#edit (for 127.0.0.1 at 2010-01-11 15:56:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (36.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mStatus Load (1.3ms)[0m   [0mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/edit
+Rendered admin/statuses/_form (4.1ms)
+Completed in 70ms (View: 12, DB: 42) | 200 OK [http://vfac.dev/admin/statuses/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:56:22) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#edit (for 127.0.0.1 at 2010-01-11 15:56:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (41.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mStatus Load (1.2ms)[0m   [0mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/edit
+Rendered admin/statuses/_form (6.3ms)
+Completed in 74ms (View: 12, DB: 47) | 200 OK [http://vfac.dev/admin/statuses/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:56:48) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#edit (for 127.0.0.1 at 2010-01-11 15:56:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (38.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mStatus Load (11.0ms)[0m   [0mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/edit
+Rendered admin/statuses/_form (6.4ms)
+Completed in 83ms (View: 13, DB: 54) | 200 OK [http://vfac.dev/admin/statuses/1/edit]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:56:58) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#update (for 127.0.0.1 at 2010-01-11 15:57:01) [PUT]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "id"=>"1", "status"=>{"name"=>"Default", "message"=>"I'm voting on Facebook to help save this couple's child, <a href=\"http://voteforacure.com\" target=\"_blank\">VoteForACure.com</a>", "active"=>"1"}}
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.8ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mStatus Load (0.9ms)[0m   [0mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://vfac.dev:3000/admin/statuses/1
+Completed in 23ms (DB: 6) | 302 Found [http://vfac.dev/admin/statuses/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#show (for 127.0.0.1 at 2010-01-11 15:57:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mStatus Load (1.2ms)[0m   [0mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/show
+Completed in 24ms (View: 4, DB: 6) | 200 OK [http://vfac.dev/admin/statuses/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:57:03) [GET]
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (39.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.3ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+  [4;35;1mStatus Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Completed in 64ms (View: 5, DB: 43) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:57:04) [GET]
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (44.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (46.2ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.length) on line #11 of app/views/admin/statuses/_form.html.haml:
+8:     = f.label :message
+9:     \- Characters Left: 
+10:     %span#chars_left
+11:       = (144- @status.message.length)
+12:     %br
+13:     = f.text_area :message
+14:   %p
+
+    app/views/admin/statuses/_form.html.haml:11:in `_run_haml_app47views47admin47statuses47_form46html46haml_locals_form_object'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:164:in `call'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:164:in `form_for'
+    haml (2.2.16) rails/./lib/haml/helpers.rb:545:in `call'
+    haml (2.2.16) rails/./lib/haml/helpers.rb:545:in `haml_bind_proc'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:170:in `form_for'
+    app/views/admin/statuses/_form.html.haml:1:in `_run_haml_app47views47admin47statuses47_form46html46haml_locals_form_object'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers.rb:96:in `non_haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:11:in `render'
+    app/views/admin/statuses/new.html.haml:5:in `_run_haml_app47views47admin47statuses47new46html46haml'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) rails/./lib/haml/helpers/action_view_mods.rb:13:in `render'
+    haml (2.2.16) lib/sass/plugin/rails.rb:19:in `process_without_compass'
+    /Users/jlippiner/.gem/ruby/1.8/gems/compass-0.10.0.pre2/lib/compass/app_integration/rails/action_controller.rb:7:in `process'
+
+Rendered rescues/_trace (136.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:57:17) [GET]
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (4.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (5.2ms)
+Completed in 33ms (View: 11, DB: 8) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:57:17) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:57:18) [GET]
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (42.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+  [4;35;1mStatus Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Completed in 65ms (View: 5, DB: 47) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:57:43) [GET]
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (36.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+  [4;35;1mStatus Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Completed in 67ms (View: 11, DB: 42) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:57:47) [GET]
+  [4;36;1mUser Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (72.4ms)
+Completed in 94ms (View: 75, DB: 5) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:57:47) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:57:49) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#create (for 127.0.0.1 at 2010-01-11 15:58:10) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "status"=>{"name"=>"Save Daugther", "message"=>"Please help save my daughter by voting at Facebook.", "active"=>"1"}}
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mStatus Create (0.2ms)[0m   [0mINSERT INTO `statuses` (`name`, `created_at`, `updated_at`, `message`, `active`) VALUES('Save Daugther', '2010-01-11 20:58:10', '2010-01-11 20:58:10', 'Please help save my daughter by voting at Facebook.', 1)[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://vfac.dev:3000/admin/statuses/2
+Completed in 24ms (DB: 7) | 302 Found [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#show (for 127.0.0.1 at 2010-01-11 15:58:10) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+  [4;36;1mStatus Load (1.0ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '2') LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/show
+Completed in 23ms (View: 4, DB: 6) | 200 OK [http://vfac.dev/admin/statuses/2]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#destroy (for 127.0.0.1 at 2010-01-11 15:58:13) [DELETE]
+  Parameters: {"authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "id"=>"2"}
+  [4;35;1mUser Columns (171.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+  [4;36;1mStatus Load (1.3ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mStatus Destroy (0.1ms)[0m   [0;1mDELETE FROM `statuses` WHERE `id` = 2[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://vfac.dev:3000/admin/statuses
+Completed in 194ms (DB: 178) | 302 Found [http://vfac.dev/admin/statuses/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#index (for 127.0.0.1 at 2010-01-11 15:58:13) [GET]
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` [0m
+Rendering template within layouts/admin
+Rendering admin/statuses/index
+  [4;35;1mStatus Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+Completed in 24ms (View: 5, DB: 5) | 200 OK [http://vfac.dev/admin/statuses]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#new (for 127.0.0.1 at 2010-01-11 15:58:15) [GET]
+  [4;36;1mUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.9ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;36;1mStatus Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/new
+Rendered admin/statuses/_form (2.5ms)
+Completed in 24ms (View: 5, DB: 5) | 200 OK [http://vfac.dev/admin/statuses/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:58:15) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-01-11 15:58:17) [GET]
+
+ActionController::RoutingError (No route matches "/images/input_bg.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#create (for 127.0.0.1 at 2010-01-11 15:58:28) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"1iVc0d97I5iVl8hPliDGYLTR0J9DbahrWx+7jjRAcWU=", "status"=>{"name"=>"Save", "message"=>"Please help save my child by voting on Facebook.", "active"=>"1"}}
+  [4;35;1mUser Columns (4.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mStatus Create (0.1ms)[0m   [0mINSERT INTO `statuses` (`name`, `created_at`, `updated_at`, `message`, `active`) VALUES('Save', '2010-01-11 20:58:28', '2010-01-11 20:58:28', 'Please help save my child by voting on Facebook.', 1)[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://vfac.dev:3000/admin/statuses/3
+Completed in 26ms (DB: 10) | 302 Found [http://vfac.dev/admin/statuses]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::StatusesController#show (for 127.0.0.1 at 2010-01-11 15:58:28) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (2.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+  [4;35;1mStatus Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `statuses`[0m
+  [4;36;1mStatus Load (0.5ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = '3') LIMIT 1[0m
+Rendering template within layouts/admin
+Rendering admin/statuses/show
+Completed in 95ms (View: 4, DB: 7) | 200 OK [http://vfac.dev/admin/statuses/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mStatus Load (0.2ms)[0m   [0mSELECT * FROM `statuses` [0m
+  [4;36;1mStatus Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `statuses`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSELECT id FROM statuses WHERE active = true[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = 3) [0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSELECT id FROM statuses WHERE active = true[0m
+  [4;36;1mStatus Load (0.3ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT id FROM statuses WHERE active = true[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = 1) [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSELECT id FROM statuses WHERE active = true[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = 3) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT id FROM statuses WHERE active = true[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = 3) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT id FROM statuses WHERE active = true[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = 3) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT id FROM statuses WHERE active = true[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = 1) [0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSELECT id FROM statuses WHERE active = true[0m
+  [4;36;1mStatus Load (0.2ms)[0m   [0;1mSELECT * FROM `statuses` WHERE (`statuses`.`id` = 1) [0m
+** TwitterAuth initialized properly.

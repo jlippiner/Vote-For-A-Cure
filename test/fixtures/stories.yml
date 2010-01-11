@@ -1,0 +1,17 @@
+one:
+  name: MyString
+  copy: MyString
+  active: false
+  picture_file_name: MyString
+  picture_content_type: MyString
+  picture_file_size: 1
+  picture_updated_at: 2010-01-11 16:04:43
+
+two:
+  name: MyString
+  copy: MyString
+  active: false
+  picture_file_name: MyString
+  picture_content_type: MyString
+  picture_file_size: 1
+  picture_updated_at: 2010-01-11 16:04:43

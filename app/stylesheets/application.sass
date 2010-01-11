@@ -1,5 +1,6 @@
 @import partials/base.sass
 @import partials/tweets.sass
+@import partials/admin.sass
 
 
 html, body
@@ -19,13 +20,16 @@ body
     #header
       #logo
         margin: 0px
+        +float-left
 
-      #icons
+      #title
         text-align: center
-        margin-bottom: 2em
-        .icon
-          display: inline
-          margin: 0px 10px
+        +float-left
+        +bold
+        +largest
+        margin-left: 3em
+        margin-top: 1em
+      
 
     
   #footer

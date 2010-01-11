@@ -1,0 +1,11 @@
+#index
+  %h2= "Welcome Back Admin @#{current_user.login}. "
+  
+  %p
+    %b What we doing today?
+    
+  %ul
+    %li= link_to "Manage Message Statuses", admin_statuses_path
+    %li= link_to "Log Out", admin_path(@current_user), :method => :delete 
+  
+  

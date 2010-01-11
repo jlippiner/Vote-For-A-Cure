@@ -2,19 +2,20 @@
   #index
     - title "Statuses"
 
-    %table
+    %table.fancy
       %tr
         %th Name
-        %th Body
+        %th Message
         %th Active
         %th(colspan="3")
       - for status in @statuses
         %tr
           %td= h status.name
-          %td= h status.body
+          %td= h status.message
           %td= h status.active
           %td= link_to 'Show', [:admin, status]
           %td= link_to 'Edit', edit_admin_status_path(status)
           %td= link_to 'Destroy', [:admin, status], :confirm => 'Are you sure?', :method => :delete
 
+    %br
     %p= link_to "+ New Status", new_admin_status_path

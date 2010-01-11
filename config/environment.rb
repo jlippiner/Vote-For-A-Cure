@@ -40,3 +40,4 @@ Rails::Initializer.run do |config|
 end
 
 require 'common_utils'
+require 'jobs/tweet_job'

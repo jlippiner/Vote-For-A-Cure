@@ -1,0 +1,32 @@
+- form_for [:admin, @story] do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :copy
+    %br
+    = f.text_field :copy
+  %p
+    = f.label :active
+    %br
+    = f.check_box :active
+  %p
+    = f.label :picture_file_name
+    %br
+    = f.text_field :picture_file_name
+  %p
+    = f.label :picture_content_type
+    %br
+    = f.text_field :picture_content_type
+  %p
+    = f.label :picture_file_size
+    %br
+    = f.text_field :picture_file_size
+  %p
+    = f.label :picture_updated_at
+    %br
+    = f.datetime_select :picture_updated_at
+  %p
+    = f.submit "Submit"

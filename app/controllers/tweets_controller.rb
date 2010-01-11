@@ -40,7 +40,7 @@ class TweetsController < ApplicationController
   def update
     if @tweet.update_attributes({:user => current_user})
       flash[:notice] = "Successfully updated tweet."
-      # Bj.submit "./script/runner ./jobs/tweet_process.rb", :tag => 'tweet', :stdin => @tweet.id
+      Delayed::Job.enqueue TweetJob.new(@tweet.id)
 
       redirect_to @tweet
     else
