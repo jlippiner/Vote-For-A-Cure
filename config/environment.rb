@@ -21,6 +21,7 @@ Rails::Initializer.run do |config|
   config.gem 'twitter-auth', :lib => 'twitter_auth'
   config.gem 'paperclip'
   config.gem 'haml', :lib=> 'haml', :version => ">=2.1.37"
+  config.gem 'fancy-buttons', :lib => 'fancy_buttons' 
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
