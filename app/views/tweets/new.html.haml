@@ -5,9 +5,7 @@
 
     #box
       %p
-        Help us end Spinal Muscular Atrophy (SMA), the #1 genetic killer of young children, by 
-        voting for The Gwendolyn Strong Foundation on Facebook.  It only takes 
-        30 seconds to make a difference.
+        Help us cure Spinal Muscular Atrophy (SMA), the #1 genetic killer of young children, by voting for the Gwendolyn Strong Foundation to win a $1 Million grant on Facebook. It only takes 30 seconds to make a difference.
   
       .story
         .picture
@@ -17,8 +15,9 @@
         
     
       %p
-        A cure is believed to be 5 years away.
-        %b Help save our daughter.
+        A cure is possible in 5 years. 
+        %b= "Help save #{@story.name}." 
+        Help save all children battling SMA.
 
       #twitter
         Please let others know that you support curing this terrible disease via Twitter.
@@ -26,7 +25,7 @@
         .message
           = @tweet.status.message if @tweet.status
         
-        The above tweet will be posted to your Twitter account after authorization. 
+        The above tweet will be posted to your Twitter account after authorization by clicking "Vote For A Cure Now!" below. 
 
         - form_for @tweet do |f|
           = f.hidden_field :status_id, :value => @tweet.status.id 
@@ -35,12 +34,12 @@
               %td
               %td
                 = f.check_box :follow_us
-                = f.label :follow_us, "Follow @gsfoundation on Twitter"
+                = f.label :follow_us, "Follow @GSFoundation on Twitter"
             %tr
               %td
               %td
                 = f.check_box :send_dm
-                = f.label :send_dm, "Direct Message your followers to help end SMA! <b>(thank you!!)</b>", :class => 'dm'         
+                = f.label :send_dm, "Direct Message your followers for more impact to help cure SMA! -- thank you!", :class => 'dm'         
       
           .action
             = submit_tag 'Vote For A Cure Now! >>', :id => "submit", :class => "button" 
