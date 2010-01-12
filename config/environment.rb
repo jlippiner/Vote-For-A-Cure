@@ -17,10 +17,10 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   config.gem 'json'
   config.gem 'oauth'
-  config.gem 'compass', :lib => 'compass', :version => ">=0.10.0.pre4"
   config.gem 'twitter-auth', :lib => 'twitter_auth'
   config.gem 'paperclip'
-  config.gem 'haml', :lib=> 'haml', :version => ">=2.1.37"
+  # config.gem 'haml', :lib=> 'haml', :version => ">=2.1.37"
+  config.gem 'compass', :lib => 'compass', :version => ">=0.10.0.pre4"
   config.gem 'fancy-buttons', :lib => 'fancy_buttons' 
 
   # Only load the plugins named here, in the order given (default is alphabetical).
