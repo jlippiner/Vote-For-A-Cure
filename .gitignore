@@ -3,7 +3,7 @@ tmp/*
 log/*
 doc/*
 config/*.yml
-public/users/*
+public/system/*
 app/views/sandbox/*
 app/controllers/sandbox*
 !.gitignore
