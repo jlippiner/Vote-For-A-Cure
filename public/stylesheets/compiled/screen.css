@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 6, ../../../vendor/gems/compass-0.10.0.pre2/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+/* line 6, ../../../vendor/gems/compass-0.10.0.pre4/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,48 +22,48 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
 }
 
-/* line 17, ../../../vendor/gems/compass-0.10.0.pre2/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+/* line 17, ../../../vendor/gems/compass-0.10.0.pre4/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 *:focus {
   outline: 0;
 }
 
-/* line 20, ../../../vendor/gems/compass-0.10.0.pre2/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+/* line 20, ../../../vendor/gems/compass-0.10.0.pre4/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 body {
   line-height: 1;
   color: #000;
   background: #fff;
 }
 
-/* line 23, ../../../vendor/gems/compass-0.10.0.pre2/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+/* line 23, ../../../vendor/gems/compass-0.10.0.pre4/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 ol, ul {
   list-style: none;
 }
 
 /* tables still need 'cellspacing="0"' in the markup */
-/* line 27, ../../../vendor/gems/compass-0.10.0.pre2/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+/* line 27, ../../../vendor/gems/compass-0.10.0.pre4/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 table {
   border-collapse: separate;
   border-spacing: 0;
   vertical-align: middle;
 }
 
-/* line 30, ../../../vendor/gems/compass-0.10.0.pre2/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+/* line 30, ../../../vendor/gems/compass-0.10.0.pre4/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 33, ../../../vendor/gems/compass-0.10.0.pre2/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+/* line 33, ../../../vendor/gems/compass-0.10.0.pre4/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 q, blockquote {
   quotes: "" "";
 }
-/* line 101, ../../../vendor/gems/compass-0.10.0.pre2/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+/* line 101, ../../../vendor/gems/compass-0.10.0.pre4/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
 }
 
-/* line 36, ../../../vendor/gems/compass-0.10.0.pre2/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+/* line 36, ../../../vendor/gems/compass-0.10.0.pre4/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 a img {
   border: none;
 }
