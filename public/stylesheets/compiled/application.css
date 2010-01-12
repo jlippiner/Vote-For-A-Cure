@@ -1045,7 +1045,7 @@ hr.fancy {
 /* line 57, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #box .action .super .superbutton {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
-  background: url('/button_bg.png') repeat-x bottom left;
+  background: url('/public/images/button_bg.png?1263243937') repeat-x bottom left;
   margin: 0;
   width: auto;
   overflow: visible;
@@ -1068,16 +1068,16 @@ hr.fancy {
   text-shadow: maroon 0px 1px 1px;
   color: white;
 }
-/* line 161, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 161, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 #tweet #new #box .action .super .superbutton::-moz-focus-inner {
   border: none;
   padding: 0;
 }
-/* line 164, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 164, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 #tweet #new #box .action .super .superbutton:focus {
   outline: none;
 }
-/* line 166, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 166, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 #tweet #new #box .action .super .superbutton.disabled, #tweet #new #box .action .super .superbutton[disabled] {
   opacity: 0.7;
   -moz-opacity: 0.7;
@@ -1085,21 +1085,21 @@ hr.fancy {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   filter: alpha(opacity=70);
 }
-/* line 171, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 171, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 #tweet #new #box .action .super .superbutton.disabled:hover, #tweet #new #box .action .super .superbutton.disabled:focus, #tweet #new #box .action .super .superbutton[disabled]:hover, #tweet #new #box .action .super .superbutton[disabled]:focus {
   cursor: default;
 }
-/* line 142, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 142, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 #tweet #new #box .action .super .superbutton:active {
   padding: 4px 17px;
   border-width: 2px;
 }
-/* line 145, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 145, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 #tweet #new #box .action .super .superbutton.disabled:active, #tweet #new #box .action .super .superbutton[disabled] {
   padding: 5px 18px;
   border-width: 1px;
 }
-/* line 23, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 23, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 #tweet #new #box .action .super .superbutton.disabled:active, #tweet #new #box .action .super .superbutton.disabled:hover, #tweet #new #box .action .super .superbutton[disabled]:active, #tweet #new #box .action .super .superbutton[disabled]:hover {
   background-color: red;
   background: -webkit-gradient(linear, left top, left bottom, from(#ffa9a9), to(#ff1414), color-stop(10%, #ff4d4d), color-stop(50%, #ef0000), color-stop(50%, #e00000));
@@ -1108,7 +1108,7 @@ hr.fancy {
   text-shadow: maroon 0px 1px 1px;
   color: white;
 }
-/* line 25, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 25, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 #tweet #new #box .action .super .superbutton:hover, #tweet #new #box .action .super .superbutton:focus {
   background-color: #f00000;
   background: -webkit-gradient(linear, left top, left bottom, from(#ff9a9a), to(#ff0505), color-stop(10%, #ff3e3e), color-stop(50%, #e00000), color-stop(50%, #d10000));
@@ -1117,7 +1117,7 @@ hr.fancy {
   text-shadow: #710000 0px 1px 1px;
   color: white;
 }
-/* line 30, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 30, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 #tweet #new #box .action .super .superbutton:active {
   background-color: #e00000;
   background: -webkit-gradient(linear, left top, left bottom, from(#e00000), to(#ff0909), color-stop(30%, #ea0000), color-stop(50%, #d50000), color-stop(50%, #c60000));
@@ -1256,7 +1256,7 @@ body #footer {
 /* line 51, ../../../app/stylesheets/application.sass */
 .button {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
-  background: url('/button_bg.png') repeat-x bottom left;
+  background: url('/public/images/button_bg.png?1263243937') repeat-x bottom left;
   margin: 0;
   width: auto;
   overflow: visible;
@@ -1280,16 +1280,16 @@ body #footer {
   color: white;
   width: 350px;
 }
-/* line 161, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 161, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 .button::-moz-focus-inner {
   border: none;
   padding: 0;
 }
-/* line 164, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 164, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 .button:focus {
   outline: none;
 }
-/* line 166, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 166, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 .button.disabled, .button[disabled] {
   opacity: 0.7;
   -moz-opacity: 0.7;
@@ -1297,21 +1297,21 @@ body #footer {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   filter: alpha(opacity=70);
 }
-/* line 171, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 171, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
   cursor: default;
 }
-/* line 142, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 142, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 .button:active {
   padding: 4px 17px;
   border-width: 2px;
 }
-/* line 145, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 145, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 .button.disabled:active, .button[disabled] {
   padding: 5px 18px;
   border-width: 1px;
 }
-/* line 23, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 23, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 .button.disabled:active, .button.disabled:hover, .button[disabled]:active, .button[disabled]:hover {
   background-color: #00b300;
   background: -webkit-gradient(linear, left top, left bottom, from(#5cff5c), to(#00c700), color-stop(10%, #00ff01), color-stop(50%, #00a300), color-stop(50%, #009400));
@@ -1320,7 +1320,7 @@ body #footer {
   text-shadow: #003300 0px 1px 1px;
   color: white;
 }
-/* line 25, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 25, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 .button:hover, .button:focus {
   background-color: #00a400;
   background: -webkit-gradient(linear, left top, left bottom, from(#4eff4e), to(#00b800), color-stop(10%, #00f100), color-stop(50%, #009400), color-stop(50%, #008500));
@@ -1329,7 +1329,7 @@ body #footer {
   text-shadow: #002500 0px 1px 1px;
   color: white;
 }
-/* line 30, ../../../../../.gem/ruby/1.8/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
+/* line 30, ../../../vendor/gems/fancy-buttons-0.3.7/lib/sass/_fancy_buttons.sass */
 .button:active {
   background-color: #009400;
   background: -webkit-gradient(linear, left top, left bottom, from(#009400), to(#00bc00), color-stop(30%, #009e00), color-stop(50%, #008900), color-stop(50%, #007a00));
