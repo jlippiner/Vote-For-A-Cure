@@ -9,7 +9,7 @@ class Admin::DirectMessagesController < AdminController
   end
   
   def new
-    @direct_message = DirectMessage.new
+    @direct_message = DirectMessage.new({:active => true})
   end
   
   def create

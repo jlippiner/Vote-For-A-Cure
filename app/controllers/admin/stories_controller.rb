@@ -9,7 +9,7 @@ class Admin::StoriesController < AdminController
   end
   
   def new
-    @story = Story.new
+    @story = Story.new({:active => true})
   end
   
   def create

@@ -11,7 +11,7 @@
   
       .story
         .picture
-          = image_tag @story.picture.url
+          = image_tag @story.picture.url if @story
         .copy
           = @story.copy
         
@@ -24,7 +24,7 @@
         Please let others know that you support curing this terrible disease via Twitter.
         
         .message
-          = @tweet.status.message
+          = @tweet.status.message if @tweet.status
         
         The above tweet will be posted to your Twitter account after authorization. 
 
