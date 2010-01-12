@@ -1,0 +1,93 @@
+--- !ruby/object:Gem::Specification 
+name: fancy-buttons
+version: !ruby/object:Gem::Version 
+  version: 0.3.7
+platform: ruby
+authors: 
+- Brandon Mathis
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-12-15 00:00:00 -05:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: haml
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 2.2.14
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: compass
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 0.10.0.pre2
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: compass-colors
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 0.3.1
+    version: 
+description: Make fancy buttons with the Compass stylesheet authoring framework.
+email: brandon@imathis.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README.markdown
+files: 
+- README.markdown
+- Rakefile
+- fancy-buttons.gemspec
+- lib/fancy-buttons.rb
+- lib/sass/_fancy_buttons.sass
+- lib/sass/_fancy_gradient.sass
+- lib/templates/project/button_bg.png
+- lib/templates/project/buttons.sass
+- lib/templates/project/index.html
+- lib/templates/project/manifest.rb
+has_rdoc: true
+homepage: http://github.com/imathis/fancy-buttons
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.5
+signing_key: 
+specification_version: 3
+summary: Make fancy buttons with the Compass stylesheet authoring framework.
+test_files: []
+
