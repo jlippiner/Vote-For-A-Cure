@@ -19,7 +19,7 @@ Rails::Initializer.run do |config|
   config.gem 'oauth'
   config.gem 'twitter-auth', :lib => 'twitter_auth'
   config.gem 'paperclip'
-  # config.gem 'haml', :lib=> 'haml', :version => ">=2.1.37"
+  config.gem 'haml', :lib=> 'haml', :version => ">=2.2.17"
   config.gem 'compass', :lib => 'compass', :version => ">=0.10.0.pre4"
   config.gem 'fancy-buttons', :lib => 'fancy_buttons' 
 
