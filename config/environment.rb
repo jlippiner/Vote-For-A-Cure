@@ -21,7 +21,7 @@ Rails::Initializer.run do |config|
   config.gem 'paperclip'
   config.gem 'haml', :lib=> 'haml', :version => ">=2.2.17"
   config.gem 'compass', :lib => 'compass', :version => ">=0.10.0.pre4"
-  # config.gem 'fancy-buttons'
+  config.gem 'fancy-buttons'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

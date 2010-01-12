@@ -6,7 +6,7 @@ project_type = :rails
 project_path = RAILS_ROOT if defined?(RAILS_ROOT)
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "stylesheets/compiled"
+css_dir = "public/stylesheets/compiled"
 sass_dir = "app/stylesheets"
 cache_dir = "tmp/sass-cache"
 images_dir = "images" 
