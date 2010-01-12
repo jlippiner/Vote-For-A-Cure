@@ -7,7 +7,6 @@
 @import compass/utilities.sass
 @import partials/facebox.sass
 @import partials/jtip
-@import fancy_buttons.sass
 
 +blueprint-typography
 +blueprint-interaction
@@ -132,6 +131,11 @@
   +round-bl(!radius)
   +round-br(!radius)
   
+=fancy-button(!color=gray)
+  +round
+  background= !color
+  font-size: 1.15em
+  color: white
   
 =hide
   display: none
