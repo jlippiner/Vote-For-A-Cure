@@ -688,7 +688,7 @@ textarea {
   height: 50px;
 }
 
-/* line 143, ../../../app/stylesheets/partials/_base.sass */
+/* line 146, ../../../app/stylesheets/partials/_base.sass */
 table.fancy {
   border: solid 1px gray;
 }
@@ -709,17 +709,17 @@ table.fancy tr th, table.fancy tr td {
   border-bottom: solid 1px #CCCCCC;
 }
 
-/* line 146, ../../../app/stylesheets/partials/_base.sass */
+/* line 149, ../../../app/stylesheets/partials/_base.sass */
 .block {
   overflow: hidden;
 }
 
-/* line 149, ../../../app/stylesheets/partials/_base.sass */
+/* line 152, ../../../app/stylesheets/partials/_base.sass */
 .top {
   vertical-align: top;
 }
 
-/* line 152, ../../../app/stylesheets/partials/_base.sass */
+/* line 155, ../../../app/stylesheets/partials/_base.sass */
 .hidden {
   position: absolute;
   top: 0;
@@ -729,54 +729,54 @@ table.fancy tr th, table.fancy tr td {
   overflow: hidden;
 }
 
-/* line 160, ../../../app/stylesheets/partials/_base.sass */
+/* line 163, ../../../app/stylesheets/partials/_base.sass */
 .hide {
   display: none;
 }
 
-/* line 163, ../../../app/stylesheets/partials/_base.sass */
+/* line 166, ../../../app/stylesheets/partials/_base.sass */
 .row {
   overflow: hidden;
 }
 
-/* line 166, ../../../app/stylesheets/partials/_base.sass */
+/* line 169, ../../../app/stylesheets/partials/_base.sass */
 .right {
   text-align: right;
 }
 
-/* line 169, ../../../app/stylesheets/partials/_base.sass */
+/* line 172, ../../../app/stylesheets/partials/_base.sass */
 .left {
   text-align: left;
 }
 
-/* line 172, ../../../app/stylesheets/partials/_base.sass */
+/* line 175, ../../../app/stylesheets/partials/_base.sass */
 .center {
   text-align: center;
 }
 
-/* line 175, ../../../app/stylesheets/partials/_base.sass */
+/* line 178, ../../../app/stylesheets/partials/_base.sass */
 .float-left {
   display: inline;
   float: left;
 }
 
-/* line 178, ../../../app/stylesheets/partials/_base.sass */
+/* line 181, ../../../app/stylesheets/partials/_base.sass */
 .float-right {
   display: inline;
   float: right;
 }
 
-/* line 181, ../../../app/stylesheets/partials/_base.sass */
+/* line 184, ../../../app/stylesheets/partials/_base.sass */
 .float-center {
   margin: auto;
 }
 
-/* line 184, ../../../app/stylesheets/partials/_base.sass */
+/* line 187, ../../../app/stylesheets/partials/_base.sass */
 .typewriter {
   font-family: Courier;
 }
 
-/* line 187, ../../../app/stylesheets/partials/_base.sass */
+/* line 190, ../../../app/stylesheets/partials/_base.sass */
 .tooltip {
   padding: 10px;
   margin: 10px;
@@ -784,61 +784,61 @@ table.fancy tr th, table.fancy tr td {
   background-color: white;
 }
 
-/* line 193, ../../../app/stylesheets/partials/_base.sass */
+/* line 196, ../../../app/stylesheets/partials/_base.sass */
 .gray {
   color: gray;
 }
 
-/* line 196, ../../../app/stylesheets/partials/_base.sass */
+/* line 199, ../../../app/stylesheets/partials/_base.sass */
 .red {
   color: #FF0000;
   font-weight: bold;
 }
 
-/* line 200, ../../../app/stylesheets/partials/_base.sass */
+/* line 203, ../../../app/stylesheets/partials/_base.sass */
 .alt {
   font-family: "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif;
   font-style: italic;
 }
 
-/* line 203, ../../../app/stylesheets/partials/_base.sass */
+/* line 206, ../../../app/stylesheets/partials/_base.sass */
 .line {
   height: 5px;
   border-bottom: 1px dotted gray;
   margin-bottom: 3px;
 }
 
-/* line 207, ../../../app/stylesheets/partials/_base.sass */
+/* line 210, ../../../app/stylesheets/partials/_base.sass */
 .small {
   font-size: .95em;
 }
 
-/* line 210, ../../../app/stylesheets/partials/_base.sass */
+/* line 213, ../../../app/stylesheets/partials/_base.sass */
 .smaller {
   font-size: .9em;
 }
 
-/* line 213, ../../../app/stylesheets/partials/_base.sass */
+/* line 216, ../../../app/stylesheets/partials/_base.sass */
 .smallest {
   font-size: .85em;
 }
 
-/* line 216, ../../../app/stylesheets/partials/_base.sass */
+/* line 219, ../../../app/stylesheets/partials/_base.sass */
 .labelOverlay {
   color: gray;
 }
 
-/* line 219, ../../../app/stylesheets/partials/_base.sass */
+/* line 222, ../../../app/stylesheets/partials/_base.sass */
 .border-red {
   border: dotted 2px red;
 }
 
-/* line 222, ../../../app/stylesheets/partials/_base.sass */
+/* line 225, ../../../app/stylesheets/partials/_base.sass */
 .middle {
   vertical-align: middle;
 }
 
-/* line 225, ../../../app/stylesheets/partials/_base.sass */
+/* line 228, ../../../app/stylesheets/partials/_base.sass */
 .error {
   padding: .8em;
   margin-bottom: 1em;
@@ -852,7 +852,7 @@ table.fancy tr th, table.fancy tr td {
   color: #8a1f11;
 }
 
-/* line 228, ../../../app/stylesheets/partials/_base.sass */
+/* line 231, ../../../app/stylesheets/partials/_base.sass */
 .warning {
   padding: .8em;
   margin-bottom: 1em;
@@ -866,7 +866,7 @@ table.fancy tr th, table.fancy tr td {
   color: #8a1f11;
 }
 
-/* line 231, ../../../app/stylesheets/partials/_base.sass */
+/* line 234, ../../../app/stylesheets/partials/_base.sass */
 .message {
   padding: .8em;
   margin-bottom: 1em;
@@ -880,7 +880,7 @@ table.fancy tr th, table.fancy tr td {
   color: #264409;
 }
 
-/* line 234, ../../../app/stylesheets/partials/_base.sass */
+/* line 237, ../../../app/stylesheets/partials/_base.sass */
 .spinner {
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
@@ -897,12 +897,12 @@ table.fancy tr th, table.fancy tr td {
   background: #333 url(/images/spinner.gif);
 }
 
-/* line 242, ../../../app/stylesheets/partials/_base.sass */
+/* line 245, ../../../app/stylesheets/partials/_base.sass */
 caption, th, td {
   vertical-align: top;
 }
 
-/* line 245, ../../../app/stylesheets/partials/_base.sass */
+/* line 248, ../../../app/stylesheets/partials/_base.sass */
 hr.fancy {
   border: none 0;
   border-top: 1px dotted gray;
@@ -911,37 +911,37 @@ hr.fancy {
   margin-bottom: 15px;
 }
 
-/* line 252, ../../../app/stylesheets/partials/_base.sass */
+/* line 255, ../../../app/stylesheets/partials/_base.sass */
 .no-margins {
   margin: 0px;
 }
 
-/* line 255, ../../../app/stylesheets/partials/_base.sass */
+/* line 258, ../../../app/stylesheets/partials/_base.sass */
 .no-padding {
   padding: 0px;
 }
 
-/* line 258, ../../../app/stylesheets/partials/_base.sass */
+/* line 261, ../../../app/stylesheets/partials/_base.sass */
 .details {
   margin: 15px 0px;
 }
-/* line 261, ../../../app/stylesheets/partials/_base.sass */
+/* line 264, ../../../app/stylesheets/partials/_base.sass */
 .details .row {
   overflow: hidden;
 }
-/* line 264, ../../../app/stylesheets/partials/_base.sass */
+/* line 267, ../../../app/stylesheets/partials/_base.sass */
 .details .row .label {
   display: inline;
   float: left;
   width: 175px;
 }
-/* line 268, ../../../app/stylesheets/partials/_base.sass */
+/* line 271, ../../../app/stylesheets/partials/_base.sass */
 .details .row .value {
   text-align: left;
   font-weight: bold;
 }
 
-/* line 272, ../../../app/stylesheets/partials/_base.sass */
+/* line 275, ../../../app/stylesheets/partials/_base.sass */
 #errorExplanation {
   padding: .8em;
   margin-bottom: 1em;
@@ -955,15 +955,15 @@ hr.fancy {
   color: #8a1f11;
 }
 
-/* line 275, ../../../app/stylesheets/partials/_base.sass */
+/* line 278, ../../../app/stylesheets/partials/_base.sass */
 .fieldWithErrors {
   display: inline;
 }
-/* line 278, ../../../app/stylesheets/partials/_base.sass */
+/* line 281, ../../../app/stylesheets/partials/_base.sass */
 .fieldWithErrors label {
   color: red;
 }
-/* line 281, ../../../app/stylesheets/partials/_base.sass */
+/* line 284, ../../../app/stylesheets/partials/_base.sass */
 .fieldWithErrors input {
   border: 1px solid red;
 }
@@ -1032,68 +1032,46 @@ hr.fancy {
 #tweet #new #box .action {
   text-align: center;
 }
-/* line 51, ../../../app/stylesheets/partials/_tweets.sass */
-#tweet #new #box .action table > tr > td {
-  vertical-align: top;
-}
-/* line 54, ../../../app/stylesheets/partials/_tweets.sass */
-#tweet #new #box .action .super {
-  text-align: center;
-}
-/* line 57, ../../../app/stylesheets/partials/_tweets.sass */
-#tweet #new #box .action .super .superbutton {
-  -moz-border-radius-topleft: 5px;
-  -webkit-border-top-left-radius: 5px;
-  -moz-border-radius-topright: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  background: red;
-  font-size: 1.15em;
-  color: white;
-}
-/* line 61, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 52, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #box ul.list {
   color: red;
   margin-top: 1em;
 }
-/* line 65, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 56, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #box .point {
   text-align: center;
   font-size: 1.2em;
   color: red;
 }
-/* line 70, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 61, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall {
   width: 900px;
   margin: 30px;
 }
-/* line 74, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 65, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall .title {
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
   padding-top: 20px;
 }
-/* line 80, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 71, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall .subtitle {
   text-align: center;
   padding: 5px 0px 20px 0px;
   text-style: italic;
 }
-/* line 85, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 76, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall span.pic {
   width: 50px;
   heigh: 50px;
 }
-/* line 89, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 80, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall span.pic img {
   width: 48px;
   height: 48px;
 }
-/* line 94, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 85, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #show #box {
   margin: 0px 0px 0px 3em;
   width: 750px;
@@ -1124,31 +1102,31 @@ hr.fancy {
   color: gray;
 }
 
-/* line 6, ../../../app/stylesheets/application.sass */
+/* line 7, ../../../app/stylesheets/application.sass */
 html, body {
   margin: 0;
   padding: 0;
 }
 
-/* line 10, ../../../app/stylesheets/application.sass */
+/* line 11, ../../../app/stylesheets/application.sass */
 body {
   background: white url(/images/twitter/bg.gif);
   font-family: "Lucida Grande",Arial,Sans-serif;
   font-size: 13px;
   line-height: 18pt;
 }
-/* line 16, ../../../app/stylesheets/application.sass */
+/* line 17, ../../../app/stylesheets/application.sass */
 body #container {
   width: 960px;
   margin: 0 auto;
 }
-/* line 21, ../../../app/stylesheets/application.sass */
+/* line 22, ../../../app/stylesheets/application.sass */
 body #container #header #logo {
   margin: 0px;
   display: inline;
   float: left;
 }
-/* line 25, ../../../app/stylesheets/application.sass */
+/* line 26, ../../../app/stylesheets/application.sass */
 body #container #header #title {
   text-align: center;
   display: inline;
@@ -1158,19 +1136,19 @@ body #container #header #title {
   margin-left: 3em;
   margin-top: 1em;
 }
-/* line 35, ../../../app/stylesheets/application.sass */
+/* line 36, ../../../app/stylesheets/application.sass */
 body #footer {
   padding-top: 50px;
   font-size: .8em;
   text-align: center;
 }
 
-/* line 40, ../../../app/stylesheets/application.sass */
+/* line 41, ../../../app/stylesheets/application.sass */
 #flash {
   margin: 0px;
 }
 
-/* line 43, ../../../app/stylesheets/application.sass */
+/* line 44, ../../../app/stylesheets/application.sass */
 .info_box {
   margin: 5px;
   font-size: 12pt;
@@ -1181,7 +1159,7 @@ body #footer {
   color: black;
 }
 
-/* line 51, ../../../app/stylesheets/application.sass */
+/* line 52, ../../../app/stylesheets/application.sass */
 .button {
   -moz-border-radius-topleft: 5px;
   -webkit-border-top-left-radius: 5px;
@@ -1192,7 +1170,30 @@ body #footer {
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
   background: #00b300;
-  font-size: 1.15em;
   color: white;
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 1.35em;
+  text-shadow: 1px 1px 1px #000;
+  background: -webkit-gradient(linear, left top, left bottom, from(green), to(#00b300));
+  background: -moz-linear-gradient(left top, left bottom, from(green), to(#00b300));
   width: 350px;
+}
+
+/* line 58, ../../../app/stylesheets/application.sass */
+.button:hover {
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  background: green;
+  color: white;
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 1.35em;
+  text-shadow: 1px 1px 1px #000;
 }

@@ -131,11 +131,14 @@
   +round-bl(!radius)
   +round-br(!radius)
   
-=fancy-button(!color=gray)
+=fancy-button(!bg_color=gray, !color=white, !font_size=1.35em)
   +round
-  background= !color
-  font-size: 1.15em
-  color: white
+  background= !bg_color
+  color= !color
+  +bold
+  font-family: Arial
+  font-size= !font_size
+  text-shadow: 1px 1px 1px #000
   
 =hide
   display: none

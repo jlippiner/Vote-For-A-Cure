@@ -1,4 +1,5 @@
 @import partials/base.sass
+@import compass/css3/gradient.sass
 @import partials/tweets.sass
 @import partials/admin.sass
 
@@ -50,4 +51,9 @@ body
 
 .button
   +fancy-button(lighten(green,10))
+  +v-gradient(green, lighten(green,10))
   width: 350px
+
+  
+.button:hover
+  +fancy-button(green)

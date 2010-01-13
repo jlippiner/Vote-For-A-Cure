@@ -14,19 +14,20 @@
         %th # followers
         %th(colspan="3")
       - for tweet in @tweets
-        %tr
-          %td
-            = image_tag tweet.user.profile_image_url, :align => "top" 
-          %td
-            = h tweet.user.login
-          %td
-            = h tweet.created_at.strftime('%d/%m/%Y')
-            .alt= h tweet.created_at.strftime('%H:%M:%S')
-          %td= h tweet.completed
-          %td= h tweet.send_dm
-          %td= h tweet.follow_us
-          %td= h tweet.user.friends_count
-          %td= h tweet.user.followers_count
-          %td= link_to 'Show', [:admin, tweet]
+        - if tweet.user
+          %tr
+            %td
+              = image_tag tweet.user.profile_image_url, :align => "top"  
+            %td
+              = h tweet.user.login
+            %td
+              = h tweet.created_at.strftime('%d/%m/%Y')
+              .alt= h tweet.created_at.strftime('%H:%M:%S')
+            %td= h tweet.completed
+            %td= h tweet.send_dm
+            %td= h tweet.follow_us
+            %td= h tweet.user.friends_count
+            %td= h tweet.user.followers_count
+            %td= link_to 'Show', [:admin, tweet]          
 
     %p= link_to "+ New Tweet", new_admin_tweet_path
