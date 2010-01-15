@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100111212357) do
+ActiveRecord::Schema.define(:version => 20100115221225) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(:version => 20100111212357) do
   create_table "followers", :force => true do |t|
     t.string   "screen_name"
     t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "searches", :force => true do |t|
+    t.integer  "status_id"
+    t.string   "from_user"
+    t.integer  "from_user_id"
+    t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

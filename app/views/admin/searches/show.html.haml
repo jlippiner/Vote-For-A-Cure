@@ -1,0 +1,23 @@
+#search
+  #show
+    - title "Search"
+
+    %p
+      %strong Status:
+      =h @search.status_id
+    %p
+      %strong From User:
+      =h @search.from_user
+    %p
+      %strong From User:
+      =h @search.from_user_id
+    %p
+      %strong Message:
+      =h @search.message
+
+    %p
+      = link_to "Edit", edit_admin_search_path(@search)
+      |
+      = link_to "Destroy", [:admin, @search], :confirm => 'Are you sure?', :method => :delete
+      |
+      = link_to "View All", admin_searches_path

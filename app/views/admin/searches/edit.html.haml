@@ -1,0 +1,10 @@
+#search
+  #index
+    - title "Edit Search"
+
+    = render :partial => 'form'
+
+    %p
+      = link_to "Show", admin_search_path(@search)
+      |
+      = link_to "View All", admin_searches_path

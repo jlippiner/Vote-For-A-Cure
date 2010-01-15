@@ -1,0 +1,11 @@
+one:
+  status_id: 1
+  from_user: MyString
+  from_user_id: 1
+  message: MyString
+
+two:
+  status_id: 1
+  from_user: MyString
+  from_user_id: 1
+  message: MyString

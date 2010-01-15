@@ -1,0 +1,20 @@
+- form_for [:admin, @search] do |f|
+  = f.error_messages
+  %p
+    = f.label :status_id
+    %br
+    = f.text_field :status_id
+  %p
+    = f.label :from_user
+    %br
+    = f.text_field :from_user
+  %p
+    = f.label :from_user_id
+    %br
+    = f.text_field :from_user_id
+  %p
+    = f.label :message
+    %br
+    = f.text_field :message
+  %p
+    = f.submit "Submit"
