@@ -50,3 +50,11 @@ class TweetSearch
     Rails.logger.info("==> #{msg}")
   end
 end
+
+# run it
+def main
+  ts = TweetSearch.new
+  dwrite("TweetSearch Completed Successfully at #{Time.now}") if ts.perform  
+end
+
+main 
