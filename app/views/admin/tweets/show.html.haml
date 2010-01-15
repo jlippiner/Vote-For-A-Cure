@@ -3,7 +3,7 @@
 #tweet
   #show
     %h1
-      = image_tag(@tweet.user.profile_image_url, :border => "0")
+      = image_tag(@tweet.user.profile_image_url, :border => "0", :width => 48, :height => 48)
       = @tweet.user.name
       
     %h2

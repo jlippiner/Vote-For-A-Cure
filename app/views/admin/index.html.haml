@@ -10,5 +10,23 @@
     %li= link_to "Manage Stories", admin_stories_path
     %li= link_to "Manage Direct Messages", admin_direct_messages_path
     %li= link_to "Log Out", admin_path(@current_user), :method => :delete 
+    
+  %p
+    %fieldset
+      %legend Current Queue Activity
+        %table.fancy
+           %tr
+             %th Created At
+             %th Last Updated
+             %th Attempts
+             %th Last Error
+             %th Failed At
+           - for job in Delayed::Job.all
+             %tr
+               %td= h job.created_at
+               %td= h job.updated_at
+               %td= h job.attemptes
+               %td= h job.last_error
+               %td= h job.failed_at
   
-  
+

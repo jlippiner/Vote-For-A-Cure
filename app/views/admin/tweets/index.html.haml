@@ -17,7 +17,7 @@
         - if tweet.user
           %tr
             %td
-              = image_tag tweet.user.profile_image_url, :align => "top"  
+              = image_tag tweet.user.profile_image_url, :align => "top", :width => 48, :height => 48  
             %td
               = h tweet.user.login
             %td
