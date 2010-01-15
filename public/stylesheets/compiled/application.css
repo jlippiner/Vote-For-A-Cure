@@ -1032,46 +1032,50 @@ hr.fancy {
 #tweet #new #box .action {
   text-align: center;
 }
-/* line 52, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 51, ../../../app/stylesheets/partials/_tweets.sass */
+#tweet #new #box .action .skip {
+  font-size: .85em;
+}
+/* line 54, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #box ul.list {
   color: red;
   margin-top: 1em;
 }
-/* line 56, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 58, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #box .point {
   text-align: center;
   font-size: 1.2em;
   color: red;
 }
-/* line 61, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 63, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall {
   width: 900px;
   margin: 30px;
 }
-/* line 65, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 67, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall .title {
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
   padding-top: 20px;
 }
-/* line 71, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 73, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall .subtitle {
   text-align: center;
   padding: 5px 0px 20px 0px;
   text-style: italic;
 }
-/* line 76, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 78, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall span.pic {
   width: 50px;
   heigh: 50px;
 }
-/* line 80, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 82, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #new #wall span.pic img {
   width: 48px;
   height: 48px;
 }
-/* line 85, ../../../app/stylesheets/partials/_tweets.sass */
+/* line 87, ../../../app/stylesheets/partials/_tweets.sass */
 #tweet #show #box {
   margin: 0px 0px 0px 3em;
   width: 750px;
