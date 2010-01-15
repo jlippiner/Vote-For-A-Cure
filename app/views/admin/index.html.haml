@@ -1,3 +1,6 @@
+- content_for :head do
+  %meta{ :content => "30", "http-equiv" => "refresh" }
+
 #index
   %h2= "Welcome Back Admin @#{current_user.login}. "
   
@@ -13,20 +16,20 @@
     
   %p
     %fieldset
-      %legend Current Queue Activity
-        %table.fancy
-           %tr
-             %th Created At
-             %th Last Updated
-             %th Attempts
-             %th Last Error
-             %th Failed At
-           - for job in Delayed::Job.all
-             %tr
-               %td= h job.created_at
-               %td= h job.updated_at
-               %td= h job.attemptes
-               %td= h job.last_error
-               %td= h job.failed_at
-  
+      %legend= "Current Queue Activity (#{pluralize(Delayed::Job.count,'Job')} as of #{Time.now})" 
+      %table.fancy
+        %tr
+          %th Created At
+          %th Last Updated
+          %th Attempts
+          %th Last Error
+          %th Failed At
+        - for job in Delayed::Job.all
+          %tr
+            %td= h job.created_at
+            %td= h job.updated_at
+            %td= h job.attempts
+            %td= h job.last_error
+            %td= h job.failed_at
+
 
