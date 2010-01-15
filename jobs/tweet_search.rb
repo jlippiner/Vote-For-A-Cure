@@ -4,7 +4,8 @@ require 'json'
 class TweetSearch
 
   def perform
-    user = User.find_by_login('endsmadotcom')
+    begin
+    user = User.find_by_login('votetocuresma')
 
     if user
       user.twitter.get('/account/verify_credentials')
@@ -25,20 +26,27 @@ class TweetSearch
         from_user_id = tweet['from_user_id']
         message = tweet['text']
 
-        search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message)
-        if search.save
-          user.twitter.post('/statuses/update.json', 'status' => "@#{from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children. http://VoteForSMA.com", 'in_reply_to_status_id' => tweet['id'])
-          dwrite("TweetSearch: reached out to #{from_user} with message")
+        if message.scan(/gsf/i).blank? && message.scan(/sma/i) && message.scan(/strong/i) # in case it makes it past twitter
+          search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message)
+          if search.save
+            user.twitter.post('/statuses/update.json', 'status' => "@#{from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children. http://VoteForSMA.com", 'in_reply_to_status_id' => tweet['id'])
+            dwrite("TweetSearch: reached out to #{from_user} with message")
+          end
         end
       end
     end
 
     true
+    
+    rescue Exception => e
+      dwrite("TweetSearch ERROR: #{e.message}")
+      false
+    end
   end
 
   def twitter_search(query,page_number=1,since_id=1,number_to_fetch=100)
     begin
-      JSON.parse(open("http://search.twitter.com/search.json?q=#{CGI.escape(query)}&since_id=#{since_id}&rpp=#{number_to_fetch}&page=#{page_number}").read)
+      JSON.parse(open("http://search.twitter.com/search.json?q=#{query}&since_id=#{since_id}&rpp=#{number_to_fetch}&page=#{page_number}").read)
     rescue Exception => e
       nil
     end
@@ -54,7 +62,7 @@ end
 # run it
 def main
   ts = TweetSearch.new
-  dwrite("TweetSearch Completed Successfully at #{Time.now}") if ts.perform  
+  dwrite("TweetSearch Completed Successfully at #{Time.now}") if ts.perform
 end
 
-main 
+main
