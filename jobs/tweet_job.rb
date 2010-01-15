@@ -10,7 +10,7 @@ class TweetJob < Struct.new(:tweet_id)
     tweet = Tweet.find_by_id(tweet_id) if tweet_id
     user = tweet.user if tweet
     
-    if user && tweet && user.login == 'endsma_dev'
+    if user && tweet 
       user.twitter.get('/account/verify_credentials')
       dwrite("Twitter (#{user.login}): Logged in successful")
 
