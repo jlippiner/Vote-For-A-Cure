@@ -2,7 +2,7 @@ require 'open-uri'
 require 'json'
 
 class TweetSearch
-  
+
   def initialize
     audit_logfile = File.open("#{RAILS_ROOT}/log/tweet_search.log", 'a')
     audit_logfile.sync = true
@@ -11,42 +11,45 @@ class TweetSearch
   end
 
   def perform
+    count = 0
     begin
-    user = User.find_by_login('voteforacure')
+      user = User.find_by_login('voteforacure')
 
-    if user
-      user.twitter.get('/account/verify_credentials')
-      dwrite("TweetSearch (#{user.login}): Logged in successful")
+      if user
+        user.twitter.get('/account/verify_credentials')
+        dwrite("TweetSearch (#{user.login}): Logged in successful")
 
-      # Get a list of all status_ids to contact
-      max_since_id = Search.maximum(:status_id)
-      tweets = []
-      1.upto(15) do |page_number|
-        dwrite("TweetSearch: Retrieving tweets from page #{page_number}")
-        page_of_tweets = twitter_search('ChaseGiving+-SMA+-Strong+-GSF',page_number, max_since_id)
-        tweets = tweets + page_of_tweets["results"] if page_of_tweets["results"]
-      end
+        # Get a list of all status_ids to contact
+        max_since_id = Search.maximum(:status_id)
+        tweets = []
+        1.upto(15) do |page_number|
+          dwrite("TweetSearch: Retrieving tweets from page #{page_number}")
+          page_of_tweets = twitter_search('ChaseGiving+-SMA+-Strong+-GSF',page_number, max_since_id)
+          tweets = tweets + page_of_tweets["results"] if page_of_tweets["results"]
+        end
 
-      tweets.each do |tweet|
-        status_id = tweet['id']
-        from_user = tweet['from_user']
-        from_user_id = tweet['from_user_id']
-        message = tweet['text']
+        tweets.each do |tweet|
+          status_id = tweet['id']
+          from_user = tweet['from_user']
+          from_user_id = tweet['from_user_id']
+          message = tweet['text']
 
-        if message.scan(/gsf/i).blank? && message.scan(/sma/i) && message.scan(/strong/i) # in case it makes it past twitter
-          search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message)
-          if search.save
-            user.twitter.post('/statuses/update.json', 'status' => "@#{from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children. http://VoteForSMA.com", 'in_reply_to_status_id' => tweet['id'])
-            dwrite("TweetSearch: reached out to #{from_user} with message")
+          if message.scan(/gsf/i).blank? && message.scan(/sma/i) && message.scan(/strong/i) # in case it makes it past twitter
+            search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message)
+            if search.save
+              user.twitter.post('/statuses/update.json', 'status' => "@#{from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children. http://VoteForSMA.com", 'in_reply_to_status_id' => tweet['id'])
+              dwrite("TweetSearch: reached out to #{from_user} with message")
+              count += 1
+            end
           end
         end
-      end
-    end
 
-    true
-    
+        dwrite ("TweetSearch: Sent messages to #{count} new people.  #{Search.count} people thus far in total.")
+      end
+
+      true
     rescue Exception => e
-      dwrite("** TweetSearch ERROR: #{e.message}")
+      dwrite("** TweetSearch ERROR: #{e.message}.  #{count} messages did go out before the error.")
       false
     end
   end
