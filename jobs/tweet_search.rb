@@ -5,7 +5,7 @@ class TweetSearch
 
   def perform
     begin
-    user = User.find_by_login('votetocuresma')
+    user = User.find_by_login('voteforacure')
 
     if user
       user.twitter.get('/account/verify_credentials')
