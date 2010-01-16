@@ -38,5 +38,6 @@ class User < TwitterAuth::GenericUser
   # parent TwitterAuth::GenericUser class.
   
   has_one :tweet
+  has_many :searches
   
 end

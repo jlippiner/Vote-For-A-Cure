@@ -10,18 +10,20 @@ class TweetSearch
     dwrite 'INITIALIZING TWEET SEARCH!'
   end
 
-  def perform
+  def perform()
     count = 0
     begin
-      user = User.find_by_login('voteforacure')
+      login = 'voteforacure' if Search.last.user == 'endsmadotcom'
+      login || 'endsmadotcom'
+      user = User.find_by_login(login)
 
       if user
         user.twitter.get('/account/verify_credentials')
         dwrite("TweetSearch (#{user.login}): Logged in successful")
 
         # Get a list of all status_ids to contact
-        max_since_id = Search.maximum(:status_id)
         tweets = []
+        max_since_id = Search.maximum(:status_id)
         1.upto(15) do |page_number|
           dwrite("TweetSearch: Retrieving tweets from page #{page_number}")
           page_of_tweets = twitter_search('ChaseGiving+-SMA+-Strong+-GSF',page_number, max_since_id)
@@ -35,11 +37,15 @@ class TweetSearch
           message = tweet['text']
 
           if message.scan(/gsf/i).blank? && message.scan(/sma/i) && message.scan(/strong/i) # in case it makes it past twitter
-            search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message)
+            search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message, :user => user)
             if search.save
-              user.twitter.post('/statuses/update.json', 'status' => "@#{from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children. http://VoteForSMA.com", 'in_reply_to_status_id' => tweet['id'])
-              dwrite("TweetSearch: reached out to #{from_user} with message")
-              count += 1
+              begin
+                user.twitter.post('/statuses/update.json', 'status' => "@#{from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children. http://VoteForSMA.com", 'in_reply_to_status_id' => tweet['id'])
+                dwrite("TweetSearch: reached out to #{from_user} with message")
+                count += 1
+              rescue Exception => e
+                dwrite("** TweetSearch ERROR: #{e.message}.)
+              end
             end
           end
         end
