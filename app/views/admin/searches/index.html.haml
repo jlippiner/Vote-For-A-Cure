@@ -2,21 +2,16 @@
   #index
     - title "Searches"
 
-    %table
+    %table.fancy
       %tr
+        %th Created At
         %th Status
         %th From user
-        %th From user
-        %th Message
-        %th(colspan="3")
+        %th Replied To Message
       - for search in @searches
         %tr
-          %td= h search.status_id
-          %td= h search.from_user
-          %td= h search.from_user_id
+          %td= h search.created_at
+          %td= link_to search.status_id, "http://www.twitter.com/#{search.from_user}/statuses/#{search.status_id}", :target => "_blank" 
+          %td= link_to search.from_user, "http://www.twitter.com/#{search.from_user}", :target => "_blank" 
           %td= h search.message
-          %td= link_to 'Show', [:admin, search]
-          %td= link_to 'Edit', edit_admin_search_path(search)
-          %td= link_to 'Destroy', [:admin, search], :confirm => 'Are you sure?', :method => :delete
 
-    %p= link_to "+ New Search", new_admin_search_path

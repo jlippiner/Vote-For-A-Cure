@@ -75,4 +75,4 @@ def main
   dwrite("!! TweetSearch Completed Successfully at #{Time.now}") if ts.perform
 end
 
-# main
+main
