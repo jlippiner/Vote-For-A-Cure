@@ -14,7 +14,7 @@ class TweetSearch
     count = 0
     begin
       login = 'voteforacure' if Search.last.user == 'endsmadotcom'
-      login || 'endsmadotcom'
+      login ||= 'endsmadotcom'
       user = User.find_by_login(login)
 
       if user
@@ -44,7 +44,8 @@ class TweetSearch
                 dwrite("TweetSearch: reached out to #{from_user} with message")
                 count += 1
               rescue Exception => e
-                dwrite("** TweetSearch ERROR: #{e.message}.")
+                dwrite("** TweetSearch ERROR: #{e.message}."exit
+                )
               end
             end
           end
