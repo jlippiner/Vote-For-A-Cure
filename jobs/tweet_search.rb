@@ -44,7 +44,7 @@ class TweetSearch
                 dwrite("TweetSearch: reached out to #{from_user} with message")
                 count += 1
               rescue Exception => e
-                dwrite("** TweetSearch ERROR: #{e.message}.)
+                dwrite("** TweetSearch ERROR: #{e.message}.")
               end
             end
           end
