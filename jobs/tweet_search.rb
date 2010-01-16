@@ -2,6 +2,13 @@ require 'open-uri'
 require 'json'
 
 class TweetSearch
+  
+  def initialize
+    audit_logfile = File.open("#{RAILS_ROOT}/log/tweet_search.log", 'a')
+    audit_logfile.sync = true
+    @ts_log = AuditLogger.new(audit_logfile)
+    dwrite 'INITIALIZING TWEET SEARCH!'
+  end
 
   def perform
     begin
@@ -39,7 +46,7 @@ class TweetSearch
     true
     
     rescue Exception => e
-      dwrite("TweetSearch ERROR: #{e.message}")
+      dwrite("** TweetSearch ERROR: #{e.message}")
       false
     end
   end
@@ -55,14 +62,14 @@ class TweetSearch
 
   def dwrite(msg)
     puts msg
-    Rails.logger.info("==> #{msg}")
+    @ts_log.info msg
   end
 end
 
 # run it
 def main
   ts = TweetSearch.new
-  dwrite("TweetSearch Completed Successfully at #{Time.now}") if ts.perform
+  dwrite("!! TweetSearch Completed Successfully at #{Time.now}") if ts.perform
 end
 
-main
+# main
