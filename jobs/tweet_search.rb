@@ -36,7 +36,7 @@ class TweetSearch
           from_user_id = tweet['from_user_id']
           message = tweet['text']
 
-          if message.scan(/gsf/i).blank? && message.scan(/sma/i) && message.scan(/strong/i) # in case it makes it past twitter
+          if message.scan(/gsf/i).blank? && message.scan(/sma/i).blank? && message.scan(/strong/i).blank? # in case it makes it past twitter
             search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message, :user => user)
             if search.save
               begin
@@ -44,6 +44,7 @@ class TweetSearch
                 dwrite("TweetSearch: reached out to #{from_user} with message")
                 count += 1
               rescue Exception => e
+                return false unless e.message.scan(/User is over daily status update limit/i).blank?
                 dwrite("** TweetSearch ERROR: #{e.message}.")
               end
             end
