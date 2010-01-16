@@ -13,7 +13,7 @@ class TweetSearch
   def perform()
     count = 0
     begin
-      login = 'voteforacure' if Search.last.user == 'endsmadotcom'
+      login = 'voteforacure' if Search.last.user.name == 'EndSMAdotCOM'
       login ||= 'endsmadotcom'
       user = User.find_by_login(login)
 
@@ -26,7 +26,7 @@ class TweetSearch
         max_since_id = Search.maximum(:status_id)
         1.upto(15) do |page_number|
           dwrite("TweetSearch: Retrieving tweets from page #{page_number}")
-          page_of_tweets = twitter_search('ChaseGiving+-SMA+-Strong+-GSF',page_number, max_since_id)
+          page_of_tweets = twitter_search('ChaseGiving%2B-SMA%2B-Strong%2B-GSF',page_number, max_since_id)
           tweets = tweets + page_of_tweets["results"] if page_of_tweets["results"]
         end
 
