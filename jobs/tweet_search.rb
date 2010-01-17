@@ -16,7 +16,7 @@ class TweetSearch
     max_since_id = Search.maximum(:status_id)
     1.upto(15) do |page_number|
       dwrite("TweetSearch: Retrieving tweets from page #{page_number}")
-      tweets = twitter_search('ChaseGiving%2B-SMA%2B-Strong%2B-GSF',page_number, 1)
+      tweets = twitter_search('ChaseGiving%2B-SMA%2B-Strong%2B-GSF',page_number, max_since_id)
 
       tweets["results"].each do |tweet|
         status_id = tweet['id']
@@ -30,7 +30,7 @@ class TweetSearch
       end if tweets["results"]
       
       dwrite("TweetSearch: #{tweets["results"].count} new tweets found")
-      return true if tweets["next_page"]
+      return true if tweets["next_page"].blank?
     end
   end
 
