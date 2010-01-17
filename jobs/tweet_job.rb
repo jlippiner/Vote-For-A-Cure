@@ -16,16 +16,17 @@ class TweetJob < Struct.new(:tweet_id)
 
       # Send replies on their behalf if selected
       if tweet.allow_replies && Search.available.count > 0
+        dwrite("Tweet Replies: #{Search.available.count} searches available")
         searches = Search.available.find(:all, :limit => 5)
-        searches.each {|x| x.update_attribute(:in_process, true)}
+        searches.each {|x| x.update_attribute(:in_process, true) }
 
         searches.each do |search|
           begin
-            user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} that's great! Please also use one of your remaining Chase votes to cure a disease killing children - http://VoteForSMA.com", 'in_reply_to_status_id' => search.status_id)
-            dwrite("TweetSearch: reached out to #{search.from_user} with message")
+            user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children - http://VoteForSMA.com", 'in_reply_to_status_id' => search.status_id)
+            dwrite("Tweet Replies: reached out to #{search.from_user} with message")
             search.update_attribute(:user, user)
           rescue Exception => e
-            dwrite("** TweetSearch ERROR: #{e.message}.")
+            dwrite("** Tweet Replies ERROR: #{e.message}.")
           end
         end
       end
@@ -70,6 +71,6 @@ class TweetJob < Struct.new(:tweet_id)
 
   def dwrite(msg)
     puts msg
-    Rails.logger.info("==> #{msg}")
+    Rails.logger.warn("==> #{msg}")
   end
 end
