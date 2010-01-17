@@ -14,9 +14,34 @@ class TweetJob < Struct.new(:tweet_id)
       user.twitter.get('/account/verify_credentials')
       dwrite("Twitter (#{user.login}): Logged in successful")
 
+      # Send replies on their behalf if selected
+      if tweet.allow_replies && Search.available.count > 0
+        searches = Search.available.find(:all, :limit => 5)
+        searches.each {|x| x.update_attribute(:in_process, true)}
+
+        searches.each do |search|
+          begin
+            user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} that's great! Please also use one of your remaining Chase votes to cure a disease killing children - http://VoteForSMA.com", 'in_reply_to_status_id' => search.status_id)
+            dwrite("TweetSearch: reached out to #{search.from_user} with message")
+            search.update_attribute(:user, user)
+          rescue Exception => e
+            dwrite("** TweetSearch ERROR: #{e.message}.")
+          end
+        end
+      end
+
       # Update their status
       user.twitter.post('/statuses/update.json', 'status' => tweet.status.message)
       dwrite("Twitter (#{user.login}): updated status for user ")
+
+
+      # Add them as a follower and catch error in case they are already following
+      begin
+        user.twitter.post("/friendships/create.json?screen_name=gsfoundation")
+        dwrite("Twitter (#{user.login}): Added gsfoundation as friend") if tweet.follow_us
+      rescue Exception => e
+        dwrite("Twitter Friend Add Error: #{e.to_s}")
+      end
 
       # DM their friends if selected
       if tweet.send_dm && user.followers_count > 0
@@ -36,33 +61,10 @@ class TweetJob < Struct.new(:tweet_id)
         end
       end
 
-      # Add them as a follower and catch error in case they are already following
-      begin
-        user.twitter.post("/friendships/create.json?screen_name=gsfoundation")
-        dwrite("Twitter (#{user.login}): Added gsfoundation as friend") if tweet.follow_us
-      rescue Exception => e
-        dwrite("Twitter Friend Add Error: #{e.to_s}")
-      end
-
-      # Send replies on their behalf if selected
-      if tweet.allow_replies && Search.available.count > 0
-        searches = Search.available.find(:all, :limit => 5)
-        searches.each {|x| x.update_attribute(:in_process, true)}
-
-        searches.each do |search|
-          begin
-            user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} that's great! Please also use one of your remaining Chase votes to cure a disease killing children - http://VoteForSMA.com", 'in_reply_to_status_id' => search.status_id)
-            dwrite("TweetSearch: reached out to #{search.from_user} with message")
-            search.update_attribute(:user, user)
-          rescue Exception => e
-            dwrite("** TweetSearch ERROR: #{e.message}.")
-          end
-        end
-      end
-
-      #Log completed
+      # Log completed
       tweet.update_attributes({:completed => true})
       dwrite("Twitter (#{user.login}): Recorded completed as true")
+
     end
   end
 
