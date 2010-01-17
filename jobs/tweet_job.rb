@@ -1,6 +1,6 @@
 class TweetJob < Struct.new(:tweet_id)
 
-  def initialize
+  def initialize(tweet_id)
     audit_logfile = File.open("#{RAILS_ROOT}/log/tweet_search.log", 'a')
     audit_logfile.sync = true
     @ts_log = AuditLogger.new(audit_logfile)
@@ -59,7 +59,7 @@ class TweetJob < Struct.new(:tweet_id)
         searches.each do |search|
           begin
             user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} that's great! Please also use one of your remaining Chase votes to cure a disease killing children - http://VoteForSMA.com", 'in_reply_to_status_id' => search.status_id)
-            dwrite("TweetSearch: reached out to #{from_user} with message")
+            dwrite("TweetSearch: reached out to #{search.from_user} with message")
             search.update_attribute(:user, user)
           rescue Exception => e
             dwrite("** TweetSearch ERROR: #{e.message}.")

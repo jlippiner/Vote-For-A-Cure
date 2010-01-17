@@ -3,7 +3,7 @@ require 'json'
 
 class TweetSearch
 
-  def initialize
+  def initialize()
     audit_logfile = File.open("#{RAILS_ROOT}/log/tweet_search.log", 'a')
     audit_logfile.sync = true
     @ts_log = AuditLogger.new(audit_logfile)
@@ -16,7 +16,7 @@ class TweetSearch
     max_since_id = Search.maximum(:status_id)
     1.upto(15) do |page_number|
       dwrite("TweetSearch: Retrieving tweets from page #{page_number}")
-      tweets = twitter_search('ChaseGiving%2B-SMA%2B-Strong%2B-GSF',page_number, max_since_id)
+      tweets = twitter_search('ChaseGiving%2B-SMA%2B-Strong%2B-GSF',page_number, 1)
 
       tweets["results"].each do |tweet|
         status_id = tweet['id']
