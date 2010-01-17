@@ -1,13 +1,10 @@
 class TweetJob < Struct.new(:tweet_id)
 
-  def initialize(tweet_id)
+  def perform
     audit_logfile = File.open("#{RAILS_ROOT}/log/tweet_search.log", 'a')
     audit_logfile.sync = true
     @ts_log = AuditLogger.new(audit_logfile)
-    dwrite 'INITIALIZING TWEET SEARCH!'
-  end
 
-  def perform
     if tweet_id
       dwrite("Twitter Process: Oauth - STARTING PROCESS OF TWEET at #{Time.now} for Tweet ID : #{tweet_id}")
     else
