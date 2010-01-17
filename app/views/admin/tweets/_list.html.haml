@@ -1,3 +1,9 @@
+%h2
+  = "Page: #{params[:page] ? params[:page] : 1}" 
+
+%p
+  = will_paginate @tweets
+
 %table.fancy
   %tr
     %th
@@ -25,3 +31,6 @@
         %td= h tweet.user.friends_count
         %td= h tweet.user.followers_count
         %td= link_to 'Show', [:admin, tweet]         
+        
+%p
+  = will_paginate @tweets

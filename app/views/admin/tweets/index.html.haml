@@ -2,17 +2,12 @@
   #index
     - title "Tweets -  #{@tweets.count}"
     
-    = will_paginate @tweets
-
     #results
       = render 'list'
-            
-    = will_paginate @tweets
-
 
 :javascript
   $(function(){
-    $('.pagination > a').click(function(){
+    $('.pagination > a').livequery('click',function(){
       $.ajax({
         url: this.href,
         success: function(html){
