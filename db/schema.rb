@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100116144337) do
+ActiveRecord::Schema.define(:version => 20100117191547) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20100116144337) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "in_process",   :default => false
   end
 
   create_table "statuses", :force => true do |t|
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20100116144337) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "direct_message_id"
+    t.boolean  "allow_replies",     :default => true
   end
 
   create_table "users", :force => true do |t|

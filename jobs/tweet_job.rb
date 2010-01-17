@@ -1,5 +1,12 @@
 class TweetJob < Struct.new(:tweet_id)
 
+  def initialize
+    audit_logfile = File.open("#{RAILS_ROOT}/log/tweet_search.log", 'a')
+    audit_logfile.sync = true
+    @ts_log = AuditLogger.new(audit_logfile)
+    dwrite 'INITIALIZING TWEET SEARCH!'
+  end
+
   def perform
     if tweet_id
       dwrite("Twitter Process: Oauth - STARTING PROCESS OF TWEET at #{Time.now} for Tweet ID : #{tweet_id}")
@@ -9,8 +16,8 @@ class TweetJob < Struct.new(:tweet_id)
 
     tweet = Tweet.find_by_id(tweet_id) if tweet_id
     user = tweet.user if tweet
-    
-    if user && tweet 
+
+    if user && tweet
       user.twitter.get('/account/verify_credentials')
       dwrite("Twitter (#{user.login}): Logged in successful")
 
@@ -31,7 +38,7 @@ class TweetJob < Struct.new(:tweet_id)
             Follower.create({:screen_name => follower, :friend_id => user.twitter_id})
             user.twitter.post('/direct_messages/new.json', 'screen_name' => follower, 'text' => tweet.direct_message.message)
           end
-          
+
           dwrite("Twitter (#{user.login}): Successfully sent DMs to #{followers.size} followers out of #{user.followers_count} (Page: #{page_num})")
         end
       end
@@ -44,6 +51,22 @@ class TweetJob < Struct.new(:tweet_id)
         dwrite("Twitter Friend Add Error: #{e.to_s}")
       end
 
+      # Send replies on their behalf if selected
+      if tweet.allow_replies && Search.available.count > 0
+        searches = Search.available.find(:all, :limit => 5)
+        searches.each {|x| x.update_attribute(:in_process, true)}
+
+        searches.each do |search|
+          begin
+            user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} that's great! Please also use one of your remaining Chase votes to cure a disease killing children - http://VoteForSMA.com", 'in_reply_to_status_id' => search.status_id)
+            dwrite("TweetSearch: reached out to #{from_user} with message")
+            search.update_attribute(:user, user)
+          rescue Exception => e
+            dwrite("** TweetSearch ERROR: #{e.message}.")
+          end
+        end
+      end
+
       #Log completed
       tweet.update_attributes({:completed => true})
       dwrite("Twitter (#{user.login}): Recorded completed as true")
@@ -52,6 +75,6 @@ class TweetJob < Struct.new(:tweet_id)
 
   def dwrite(msg)
     puts msg
-    Rails.logger.info("==> #{msg}")
+    @ts_log.info msg
   end
 end

@@ -10,54 +10,27 @@ class TweetSearch
     dwrite 'INITIALIZING TWEET SEARCH!'
   end
 
-  def perform()
-    count = 0
-    begin
-      login = 'voteforacure' if Search.last.user.name == 'EndSMAdotCOM'
-      login ||= 'endsmadotcom'
-      user = User.find_by_login(login)
+  def perform
+    # get the latest chase giving mentions and store in database without a user
+    # Get a list of all status_ids to contact
+    max_since_id = Search.maximum(:status_id)
+    1.upto(15) do |page_number|
+      dwrite("TweetSearch: Retrieving tweets from page #{page_number}")
+      tweets = twitter_search('ChaseGiving%2B-SMA%2B-Strong%2B-GSF',page_number, max_since_id)
 
-      if user
-        user.twitter.get('/account/verify_credentials')
-        dwrite("TweetSearch (#{user.login}): Logged in successful")
+      tweets["results"].each do |tweet|
+        status_id = tweet['id']
+        from_user = tweet['from_user']
+        from_user_id = tweet['from_user_id']
+        message = tweet['text']
 
-        # Get a list of all status_ids to contact
-        tweets = []
-        max_since_id = Search.maximum(:status_id)
-        1.upto(15) do |page_number|
-          dwrite("TweetSearch: Retrieving tweets from page #{page_number}")
-          page_of_tweets = twitter_search('ChaseGiving%2B-SMA%2B-Strong%2B-GSF',page_number, max_since_id)
-          tweets = tweets + page_of_tweets["results"] if page_of_tweets["results"]
+        if message.scan(/gsf/i).blank? && message.scan(/sma/i).blank? && message.scan(/strong/i).blank? # in case it makes it past twitter
+          search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message, :user => nil)
         end
-
-        tweets.each do |tweet|
-          status_id = tweet['id']
-          from_user = tweet['from_user']
-          from_user_id = tweet['from_user_id']
-          message = tweet['text']
-
-          if message.scan(/gsf/i).blank? && message.scan(/sma/i).blank? && message.scan(/strong/i).blank? # in case it makes it past twitter
-            search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message, :user => user)
-            if search.save
-              begin
-                user.twitter.post('/statuses/update.json', 'status' => "@#{from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children. http://VoteForSMA.com", 'in_reply_to_status_id' => tweet['id'])
-                dwrite("TweetSearch: reached out to #{from_user} with message")
-                count += 1
-              rescue Exception => e
-                return false unless e.message.scan(/User is over daily status update limit/i).blank?
-                dwrite("** TweetSearch ERROR: #{e.message}.")
-              end
-            end
-          end
-        end
-
-        dwrite ("TweetSearch: Sent messages to #{count} new people.  #{Search.count} people thus far in total.")
-      end
-
-      true
-    rescue Exception => e
-      dwrite("** TweetSearch ERROR: #{e.message}.  #{count} messages did go out before the error.")
-      false
+      end if tweets["results"]
+      
+      dwrite("TweetSearch: #{tweets["results"].count} new tweets found")
+      return true if tweets["next_page"]
     end
   end
 
@@ -69,17 +42,15 @@ class TweetSearch
     end
   end
 
-
   def dwrite(msg)
     puts msg
     @ts_log.info msg
   end
 end
 
-# run it
 def main
   ts = TweetSearch.new
-  dwrite("!! TweetSearch Completed Successfully at #{Time.now}") if ts.perform
+  ts.perform
 end
 
 main

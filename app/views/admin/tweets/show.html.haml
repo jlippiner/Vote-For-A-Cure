@@ -16,6 +16,16 @@
       %strong Is Following Us:
       =h @tweet.follow_us
     %p
+      %strong Allow Replies:
+      =h @tweet.allow_replies
+      - if @tweet.allow_replies
+        #replies
+          %i Replies sent to:
+          %ul
+            - @tweet.user.searches.each do |search|
+              %li= "(@#{search.from_user}) - #{search.message}"
+            
+    %p
       %strong Number Of Friends:
       =h @tweet.user.friends_count
     %p

@@ -1090,6 +1090,10 @@ hr.fancy {
   -moz-border-radius-bottomright: 5px;
   -webkit-border-bottom-right-radius: 5px;
 }
+/* line 90, ../../../app/stylesheets/partials/_tweets.sass */
+#tweet #show #replies {
+  margin-left: 3em;
+}
 
 /* line 2, ../../../app/stylesheets/partials/_admin.sass */
 #admin #box {
@@ -1104,6 +1108,10 @@ hr.fancy {
   font-style: italic;
   font-size: 2em;
   color: gray;
+}
+/* line 15, ../../../app/stylesheets/partials/_admin.sass */
+#admin #tweet #show #replies {
+  margin-left: 3em;
 }
 
 /* line 7, ../../../app/stylesheets/application.sass */

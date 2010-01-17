@@ -25,7 +25,7 @@
         .message
           = @tweet.status.message if @tweet.status
         
-        The above tweet will be posted to your Twitter account after authorization by clicking "Vote For A Cure Now!" below. 
+        The above tweet will be posted to your Twitter account and the selected actions below will be taken on your behalf <i>only</i> after your express authorization is given by clicking the "Tweet & Vote For A Cure Now!" button below.  - Thank you!
 
         - form_for @tweet do |f|
           = f.hidden_field :status_id, :value => @tweet.status.id 
@@ -38,8 +38,16 @@
             %tr
               %td
               %td
+                = f.check_box :allow_replies
+                = f.label :allow_replies, "Raise awareness by telling 10 others who voted for other orgs about curing SMA!", :class => 'dm'         
+            %tr
+              %td
+              %td
                 = f.check_box :send_dm
                 = f.label :send_dm, "Direct Message your followers for more impact to help cure SMA! -- thank you!", :class => 'dm'         
+      
+                
+      
       
           .action
             = submit_tag 'Tweet & Vote For A Cure Now! >>', :id => "submit", :class => "button" 
