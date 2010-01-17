@@ -30,7 +30,6 @@ class TweetSearch
       end if tweets["results"]
       
       dwrite("TweetSearch: #{tweets["results"].count} new tweets found")
-      return true if tweets["next_page"].blank?
     end
   end
 
