@@ -1,10 +1,6 @@
 class TweetJob < Struct.new(:tweet_id)
 
   def perform
-    audit_logfile = File.open("#{RAILS_ROOT}/log/tweet_search.log", 'a')
-    audit_logfile.sync = true
-    @ts_log = AuditLogger.new(audit_logfile)
-
     if tweet_id
       dwrite("Twitter Process: Oauth - STARTING PROCESS OF TWEET at #{Time.now} for Tweet ID : #{tweet_id}")
     else
@@ -72,6 +68,6 @@ class TweetJob < Struct.new(:tweet_id)
 
   def dwrite(msg)
     puts msg
-    @ts_log.info msg
+    Rails.logger.info("==> #{msg}")
   end
 end
