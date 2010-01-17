@@ -6,7 +6,7 @@
       = h(yield(:title) || "VoteForACure.org - Vote For A Cure")
     %meta{ :name => "keywords", :content => @meta_keywords }
     %meta{ :name => "description", :content => @meta_description }
-    = javascript_include_tag 'jquery.min', 'jquery.corners.min', 'jquery.livequery','flash', 'application', "controllers/#{params[:controller]}"
+    = javascript_include_tag 'jquery.min', 'jquery.corners.min', 'jquery.livequery','flash', 'application', "facebox", 'common_utils',"controllers/#{params[:controller]}"
     = stylesheet_link_tag 'compiled/application.css'
     = yield :head
   %body

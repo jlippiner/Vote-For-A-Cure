@@ -8,7 +8,7 @@
     %b What we doing today?
     
   %ul
-    %li= link_to "View Users", admin_tweets_path
+    %li= link_to "View Users (#{Tweet.count} Users)", admin_tweets_path
     %li= link_to "Manage Message Statuses", admin_statuses_path
     %li= link_to "Manage Stories", admin_stories_path
     %li= link_to "Manage Direct Messages", admin_direct_messages_path
