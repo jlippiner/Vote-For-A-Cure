@@ -29,5 +29,7 @@
             %td= h tweet.user.friends_count
             %td= h tweet.user.followers_count
             %td= link_to 'Show', [:admin, tweet]          
+            
+    = will_paginate @tweets
 
     %p= link_to "+ New Tweet", new_admin_tweet_path

@@ -2,7 +2,7 @@ class Admin::TweetsController < AdminController
   before_filter :get_tweet, :except => [:index, :new, :create] 
   
   def index
-    @tweets = Tweet.all(:order => "created_at DESC")
+    @tweets = Tweet.paginate :page => params[:page], :per_page => 50, :order => "created_at DESC"
   end
   
   def show

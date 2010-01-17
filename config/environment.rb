@@ -21,6 +21,7 @@ Rails::Initializer.run do |config|
   config.gem 'paperclip'
   config.gem 'haml', :lib=> 'haml', :version => ">=2.2.17"
   config.gem 'compass', :lib => 'compass', :version => ">=0.10.0.pre4"
+  config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
