@@ -28,8 +28,38 @@ class TweetSearch
           search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message, :user => nil)
         end
       end if tweets["results"]
-      
+
       dwrite("TweetSearch: #{tweets["results"].count} new tweets found")
+    end
+  end
+
+  def catch_up
+    Tweet.without_searches.each do |tweet|
+      user = tweet.user if tweet
+
+      if user && tweet
+        begin
+          user.twitter.get('/account/verify_credentials')
+          dwrite("Tweet Replies: Login successful for #{user.login}")
+
+          dwrite("Tweet Replies: #{Search.available.count} searches available")
+          searches = Search.available.find(:all, :limit => 10)
+          searches.each {|x| x.update_attribute(:in_process, true) }
+
+          searches.each do |search|
+            begin
+              user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children - http://VoteForSMA.com", 'in_reply_to_status_id' => search.status_id)
+              dwrite("Tweet Replies from #{user.login}: reached out to #{search.from_user} with message")
+              search.update_attribute(:user, user)
+            rescue Exception => e
+              dwrite("** Tweet Replies ERROR for #{user.login}: #{e.message}.")
+            end
+          end
+
+        rescue Exception => e
+          dwrite("** Tweet Replies Login ERROR for #{user.login}: #{e.message}.")
+        end
+      end
     end
   end
 

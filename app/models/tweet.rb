@@ -16,6 +16,9 @@ class Tweet < ActiveRecord::Base
   belongs_to :user
   belongs_to :status
   belongs_to :direct_message
+  has_many :searches, :through => :user 
+  
+  named_scope :to_reply, :conditions => ['allow_replies = ? AND user_id IS NOT NULL', true]
   
   before_create :add_status_and_direct_message
   
@@ -24,5 +27,12 @@ class Tweet < ActiveRecord::Base
   def add_status_and_direct_message
     self.direct_message = DirectMessage.random
   end
+  
+  def self.without_searches
+    self.to_reply.select {|x| x.searches.empty?}
+  end
 
+  def self.with_searches
+    self.to_reply.select {|x| !x.searches.empty?}
+  end
 end
