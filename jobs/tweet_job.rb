@@ -71,6 +71,6 @@ class TweetJob < Struct.new(:tweet_id)
 
   def dwrite(msg)
     puts msg
-    Rails.logger.warn("==> #{msg}")
+    Rails.logger.info("==> #{msg}")
   end
 end
