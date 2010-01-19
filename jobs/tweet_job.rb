@@ -22,7 +22,7 @@ class TweetJob < Struct.new(:tweet_id)
 
         searches.each do |search|
           begin
-            user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children - http://VoteForSMA.com", 'in_reply_to_status_id' => search.status_id)
+            user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} that's great! Please use one of your remaining Chase votes to cure a disease killing children - http://VoteForACure.com", 'in_reply_to_status_id' => search.status_id)
             dwrite("Tweet Replies: reached out to #{search.from_user} with message")
             search.update_attribute(:user, user)
           rescue Exception => e
