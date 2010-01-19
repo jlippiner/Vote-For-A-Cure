@@ -13,19 +13,21 @@ class TweetSearch
   def perform
     # get the latest chase giving mentions and store in database without a user
     # Get a list of all status_ids to contact
-    max_since_id = Search.maximum(:status_id)
+    max_posted_at = Search.maximum(:posted_at)
+    max_posted_at ||= Date.new(y=2010, m=01, d=15)
     1.upto(15) do |page_number|
       dwrite("TweetSearch: Retrieving tweets from page #{page_number}")
-      tweets = twitter_search('ChaseGiving%2B-SMA%2B-Strong%2B-GSF',page_number, max_since_id)
+      tweets = twitter_search('ChaseGiving%2B-SMA%2B-Strong%2B-GSF',page_number, max_posted_at.strftime('%Y-%m-%d'))
 
       tweets["results"].each do |tweet|
         status_id = tweet['id']
         from_user = tweet['from_user']
         from_user_id = tweet['from_user_id']
         message = tweet['text']
+        posted_at = tweet['created_at']
 
         if message.scan(/gsf/i).blank? && message.scan(/sma/i).blank? && message.scan(/strong/i).blank? # in case it makes it past twitter
-          search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message, :user => nil)
+          search = Search.create(:status_id => status_id, :from_user => from_user, :from_user_id => from_user_id, :message => message, :user => nil, :posted_at => posted_at)
         end
       end if tweets["results"]
 
@@ -65,7 +67,7 @@ class TweetSearch
 
   def twitter_search(query,page_number=1,since_id=1,number_to_fetch=100)
     begin
-      JSON.parse(open("http://search.twitter.com/search.json?q=#{query}&since_id=#{since_id}&rpp=#{number_to_fetch}&page=#{page_number}").read)
+      JSON.parse(open("http://search.twitter.com/search.json?q=#{query}&since=#{since_id}&rpp=#{number_to_fetch}&page=#{page_number}").read)
     rescue Exception => e
       nil
     end
