@@ -39,7 +39,7 @@ class TweetPepsi
   def refresh_searches
     # get the latest chase giving mentions and store in database without a user
     # Get a list of all status_ids to contact
-    max_posted_at = Search.maximum(:posted_at)
+    max_posted_at = Search.by_tag('pepsi').maximum(:posted_at)
     max_posted_at ||= Date.new(y=2010, m=01, d=15)
     1.upto(15) do |page_number|
       dwrite("TweetPepsi: Retrieving tweets from page #{page_number}")
