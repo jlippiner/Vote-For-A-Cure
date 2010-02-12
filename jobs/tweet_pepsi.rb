@@ -21,7 +21,7 @@ class TweetPepsi
     if user && Search.by_tag('pepsi').available.count > 0
       user.twitter.get('/account/verify_credentials')
       dwrite("TweetPepsi: #{Search.available.count} searches available")
-      searches = Search.by_tag('pepsi').available.find(:all, :limit => 10)
+      searches = Search.by_tag('pepsi').available.find(:all, :limit => 200)
       searches.each {|x| x.update_attribute(:in_process, true) }
 
       searches.each do |search|
