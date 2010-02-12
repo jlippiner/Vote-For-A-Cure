@@ -43,7 +43,8 @@ class TweetPepsi
       dwrite("TweetPepsi: Retrieving tweets from page #{page_number}")
       tweets = twitter_search(page_number, max_posted_at.strftime('%Y-%m-%d'))
 
-      return false unless tweets && tweets["results"].count > 0
+      return false unless tweets 
+      return true if tweets["results"].count == 0
 
       tweets["results"].each do |tweet|
         status_id = tweet['id']
