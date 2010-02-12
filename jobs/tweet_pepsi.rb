@@ -18,7 +18,7 @@ class TweetPepsi
     reply_text = "I just did! You should vote for free to help this mom win $5,000 to save her baby, cure a disease. http://bit.ly/bV99Ei"
 
     user = User.find_by_login('EndSMAdotcom')
-    if user && !Search.by_tag('pepsi').available.count > 0
+    if user && Search.by_tag('pepsi').available.count > 0
       user.twitter.get('/account/verify_credentials')
       dwrite("TweetPepsi: #{Search.available.count} searches available")
       searches = Search.by_tag('pepsi').available.find(:all, :limit => 10)
