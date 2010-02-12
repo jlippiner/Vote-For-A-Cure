@@ -15,8 +15,6 @@ class TweetPepsi
   end
 
   def send_replies
-    reply_text = "I just did! You should vote for free to help this mom win $5,000 to save her baby, cure a disease. http://bit.ly/bV99Ei"
-
     user = User.find_by_login('EndSMAdotcom')
     if user && Search.by_tag('pepsi').available.count > 0
       user.twitter.get('/account/verify_credentials')
@@ -26,7 +24,7 @@ class TweetPepsi
 
       searches.each do |search|
         begin
-          user.twitter.post('/statuses/update.json', 'status' => reply_text, 'in_reply_to_status_id' => search.status_id)
+          user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} I just did! Can you also vote to help this mom win $5,000 to save her baby, cure a disease. http://bit.ly/bV99Ei", 'in_reply_to_status_id' => search.status_id)
           dwrite("TweetPepsi: reached out to #{search.from_user} with message")
           search.update_attribute(:user, user)
         rescue Exception => e
@@ -45,7 +43,7 @@ class TweetPepsi
       dwrite("TweetPepsi: Retrieving tweets from page #{page_number}")
       tweets = twitter_search(page_number, max_posted_at.strftime('%Y-%m-%d'))
 
-      return false unless tweets
+      return false unless tweets && tweets["results"].count > 0
 
       tweets["results"].each do |tweet|
         status_id = tweet['id']
