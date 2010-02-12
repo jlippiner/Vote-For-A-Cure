@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: direct_messages
+#
+#  id         :integer(4)      not null, primary key
+#  name       :string(255)
+#  message    :string(255)
+#  active     :boolean(1)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class DirectMessage < ActiveRecord::Base
   belongs_to :tweet
   validates_presence_of :name, :message

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100119003010) do
+ActiveRecord::Schema.define(:version => 20100212201200) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20100119003010) do
     t.integer  "user_id"
     t.boolean  "in_process",   :default => false
     t.datetime "posted_at"
+    t.string   "tag"
   end
 
   create_table "statuses", :force => true do |t|
