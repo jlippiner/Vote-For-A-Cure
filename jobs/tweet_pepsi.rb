@@ -11,11 +11,16 @@ class TweetPepsi
   end
 
   def perform
-    send_replies if refresh_searches
+    if refresh_searches
+      endsmadotcom = User.find_by_login('EndSMAdotcom')
+      voteforacure = User.find_by_login('voteforacure')
+
+      send_replies(endsmadotcom)
+      send_replies(voteforacure)
+    end
   end
 
-  def send_replies
-    user = User.find_by_login('EndSMAdotcom')
+  def send_replies(user)
     if user && Search.by_tag('pepsi').available.count > 0
       user.twitter.get('/account/verify_credentials')
       dwrite("TweetPepsi: #{Search.available.count} searches available")
@@ -43,7 +48,7 @@ class TweetPepsi
       dwrite("TweetPepsi: Retrieving tweets from page #{page_number}")
       tweets = twitter_search(page_number, max_posted_at.strftime('%Y-%m-%d'))
 
-      return false unless tweets 
+      return false unless tweets
       return true if tweets["results"].count == 0
 
       tweets["results"].each do |tweet|
