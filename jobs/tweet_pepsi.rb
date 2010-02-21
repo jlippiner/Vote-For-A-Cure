@@ -15,7 +15,10 @@ class TweetPepsi
       endsmadotcom = User.find_by_login('EndSMAdotcom')
       voteforacure = User.find_by_login('voteforacure')
 
+      dwrite("TweetPepsi: sending from endsmadotcom")
       send_replies(endsmadotcom)
+
+      dwrite("TweetPepsi: sending from voteforacure")
       send_replies(voteforacure)
     end
   end
@@ -27,15 +30,18 @@ class TweetPepsi
       searches = Search.by_tag('pepsi').available.find(:all, :limit => 200)
       searches.each {|x| x.update_attribute(:in_process, true) }
 
-      searches.each do |search|
+      searches.each_with_index do |search,ndx|
         begin
           user.twitter.post('/statuses/update.json', 'status' => "@#{search.from_user} I just did! Can you also vote to help this mom win $5,000 to save her baby, cure a disease. http://bit.ly/bV99Ei", 'in_reply_to_status_id' => search.status_id)
-          dwrite("TweetPepsi: reached out to #{search.from_user} with message")
+          dwrite("TweetPepsi: [#{ndx}] reached out to #{search.from_user} with message from #{user.login}")
           search.update_attribute(:user, user)
         rescue Exception => e
           dwrite("** TweetPepsi: #{e.message}.")
         end
       end
+    else
+      dwrite("** TweetPepsi: user not found") unless user
+      dwrite("** TweetPepsi: not searches available") if Search.by_tag('pepsi').available.empty?
     end
   end
 
